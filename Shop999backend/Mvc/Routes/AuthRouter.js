@@ -10,7 +10,7 @@ const router=express();
 router.post("/create",createUserController)
 
 //get
-router.get("/getuse",getUserController)
+router.get("/getUser",getUserController)
 
 // LOGIN
 router.post("/login",LoginController)

@@ -1,7 +1,7 @@
 const userModel = require("../Models/UserSchem")
 const createUserController = async (req, res) => {
     try {
-        const { name, lastname, email, password, phone } = req.body;
+        const { name, lastname, email, password, phone,role } = req.body;
         // validations
         if (!name || !lastname || !email || !password || !phone) {
             return res.status(400).send({

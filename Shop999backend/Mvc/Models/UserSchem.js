@@ -21,7 +21,13 @@ const userSchema = new mongoose.Schema({
     phone: {
         type: String,
         required: [true, 'phone is require']
+    },
+    role:{
+        type:String,
+        default:'user'
+        
     }
+
 
 }, { timestamps: true })
 module.exports = mongoose.model('User',userSchema)
