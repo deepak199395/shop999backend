@@ -1,5 +1,6 @@
 const express =require("express");
-const { createUserController, getUserController, editUserController, LoginController } = require("../Controllers/AuthController");
+const { createUserController, getUserController, LoginController } = require("../Controllers/AuthController");
+const { createProject } = require("../Controllers/ProductController");
 
 const router=express();
 
@@ -15,6 +16,7 @@ router.get("/getUser",getUserController)
 // LOGIN
 router.post("/login",LoginController)
 
-
+// prodct API routes
+router.put("/createprocts",createProject)
 
 module.exports=router;

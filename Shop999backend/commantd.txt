@@ -5,3 +5,5 @@ vercel
 
 vercel
 vercel --prod
+
+ vercel list shop999backend
