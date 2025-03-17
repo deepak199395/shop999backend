@@ -1,4 +1,4 @@
-const productModel = require("../Models/ProductSchema")
+const productModel = require("../MongoModels/ProductSchema")
 const createProject = async (req, res) => {
     try {
         const { ProductNmae, ProductDescription, ProductPrice, ProductImage, ProductCategory } = req.body;

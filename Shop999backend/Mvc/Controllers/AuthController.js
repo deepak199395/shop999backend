@@ -1,4 +1,4 @@
-const userModel = require("../Models/UserSchem")
+const userModel = require("../MongoModels/UserSchem")
 
 // get userController
 const createUserController = async (req, res) => {
