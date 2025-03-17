@@ -13,9 +13,8 @@ const createProject = async (req, res) => {
     } catch (error) {
         console.log("error in create product", error)
         res.status(500).send({ message: "Error in Creating Product" })
-
+       }
     }
-}
 const getProductsDetails = async (req, res) => {
     try {
         const products = await productModel.find()
@@ -26,7 +25,6 @@ const getProductsDetails = async (req, res) => {
     } catch (error) {
         console.log("error in products api", error)
         res.status(500).send({ message: "Error in Getting Products Details" })
-
-    }
+      }
 }
 module.exports = { createProject, getProductsDetails }

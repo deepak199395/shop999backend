@@ -4,14 +4,10 @@ const cors= require("cors")
 const morgan = require("morgan");
 const connectDb= require("./Config/Db")
 const dotenv= require("dotenv")
-
 const app=express()// dotenv configuration
 dotenv.config()
-
 // Database connecton
 connectDb()
-
-
 //midleware
 app.use(cors())
 app.use(express.json());
@@ -24,7 +20,7 @@ app.get("/",(req,res)=>{
 // Api routes
 app.use("/api/v1",require("./Mvc/Routes/AuthRouter"))
 
-const PORT=process.env.PORT ||8081
+const PORT=process.env.PORT||8081
 
 app.listen(PORT,()=>{
     console.log(`server is running on port ${PORT}`.bgCyan.bgGreen)

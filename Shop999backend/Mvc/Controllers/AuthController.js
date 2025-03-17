@@ -52,7 +52,7 @@ const getUserController = async (req, res) => {
             message: "Error retrieving users",
             error
         })
-     }
+    }
 }
 // Login  editcontroller
 const LoginController = async (req, res) => {
@@ -71,20 +71,20 @@ const LoginController = async (req, res) => {
             return res.status(404).send({
                 success: false,
                 message: "incorrect Creadition",
-             })
+            })
         }
         res.status(201).send({
             success: true,
             massage: "user Login succefully",
             user
-          })
+        })
     } catch (error) {
         console.log("error while login", error)
         res.status(500).send({
             success: false,
             message: "Error while login",
             error
-         })
+        })
     }
 }
 const updateUserController = async (req, res) => {
@@ -94,12 +94,51 @@ const updateUserController = async (req, res) => {
         let updatedData = { name, lastname, email, password, phone, role };
         const updatedUser = await userModel.findByIdAndUpdate(id, updatedData, { new: true })
         if (!updatedUser) {
-            return res.status(404).send({ success: false, message: "User not found" });
+            return res.status(404).send({
+                success: false,
+                message: "User not found"
+            });
         }
-        res.status(200).send({ success: true, message: "User updated successfully", updatedUser });
+        res.status(200).send({
+            success: true,
+            message: "User updated successfully",
+            updatedUser
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send({ success: false, message: "Error updating user", error });
     }
 }
-module.exports = { createUserController, getUserController, LoginController, updateUserController }
+const deleteController = async (req, res) => {
+    try {
+        const { id } = req.params
+        const deleteUser = await userModel.findByIdAndDelete(id)
+        if (!deleteUser) {
+            return res.status(404).send({
+                success: false,
+                message: "User not found"
+            })
+        }
+        res.status(200).send({
+            success: true,
+            message: "User deleted successfully"
+        })
+
+    } catch (error) {
+        console.log("error delete user api", error)
+        res.status(500).send({
+            success: false,
+            message: "Error deleting user",
+            error
+        })
+
+    }
+
+}
+module.exports = {
+    createUserController,
+    getUserController,
+    LoginController,
+    updateUserController,
+    deleteController
+}
