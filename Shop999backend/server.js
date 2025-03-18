@@ -20,8 +20,8 @@ app.get("/",(req,res)=>{
 })
 
 // Api routes
-app.use("/api/v1",require("./Mvc/Routes/AuthRouter"))
-app.use("/api/v2",require("./Mvc/Routes/sportsProductRoutes"))
+app.use("/api/v1",require("./api/AuthRouter"))
+app.use("/api/v2",require("./api/sportsProductRoutes"))
 
 const PORT=process.env.PORT||8081
 

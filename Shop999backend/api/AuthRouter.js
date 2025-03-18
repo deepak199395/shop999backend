@@ -3,9 +3,9 @@ const { createUserController,
     getUserController,
     LoginController,
     updateUserController,
-    deleteController } = require("../Controllers/AuthController");
+    deleteController } = require("../Mvc/Controllers/AuthController");
 const { createProject,
-    getProductsDetails } = require("../Controllers/ProductController");
+    getProductsDetails } = require("../Mvc/Controllers/ProductController");
 const router = express();
 // router GET || POST || PUT || DELETE 
 //users

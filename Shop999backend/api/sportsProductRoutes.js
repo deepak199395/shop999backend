@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const sportsProductController= require("../Controllers/sportsProductController")
+const sportsProductController= require("../Mvc/Controllers/sportsProductController")
 // Define routes
 router.post("/create",sportsProductController.createProduct)
 router.get("/getProductsDetails/:id",sportsProductController.getProductDetails)
