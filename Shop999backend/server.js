@@ -20,8 +20,8 @@ app.get("/",(req,res)=>{
 })
 
 // Api routes
-app.use("/api/v1",require("./api/AuthRouter"))
-app.use("/api/v2",require("./api/sportsProductRoutes"))
+app.use("/api/auth",require("./api/AuthRouter"))
+app.use("/api/products",require("./api/sportsProductRoutes"))
 
 const PORT=process.env.PORT||8081
 
