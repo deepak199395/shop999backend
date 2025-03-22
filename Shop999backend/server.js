@@ -3,13 +3,13 @@ const colors = require("colors")
 const cors= require("cors")
 const morgan = require("morgan");
 const connectDb= require("./Config/Db")
-const {connectMySQL,sequelize}=require("./Config/sequelize")
+//const {connectMySQL,sequelize}=require("./Config/sequelize")
 const dotenv= require("dotenv")
 const app=express()// dotenv configuration
 dotenv.config()
 // Database connecton
 connectDb()
-connectMySQL()
+//connectMySQL()
 //midleware
 app.use(cors())
 app.use(express.json());
@@ -21,7 +21,7 @@ app.get("/",(req,res)=>{
 
 // Api routes
 app.use("/api/auth",require("./api/AuthRouter"))
-app.use("/api/products",require("./api/sportsProductRoutes"))
+//app.use("/api/products",require("./api/sportsProductRoutes"))
 
 const PORT=process.env.PORT||8081
 
