@@ -30,6 +30,5 @@ router.get('/getBookingDetails',getBookingDetails)
 
 
 
-module.exports = router;  
 
 
