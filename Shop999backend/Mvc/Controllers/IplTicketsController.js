@@ -16,6 +16,7 @@ const CreateTickets = async (req, res) => {
             matchTicketBookingAmount,
             TeamImage,
             TeamLogo,
+            flag,
             TeamName } = req.body;
         const newTicket = await matchTicket.create({
             matchId,
@@ -33,7 +34,8 @@ const CreateTickets = async (req, res) => {
             matchTicketBookingAmount,
             TeamImage,
             TeamLogo,
-            TeamName
+            TeamName,
+            flag
         })
         res.status(201).send({
             success: true,
@@ -53,6 +55,7 @@ const getTicketInfo = async (req, res) => {
     try {
         const ticketsinfo = await matchTicket.find()
         res.status(200).send({
+            
             success: true,
             message: "Tickets Info", ticketsinfo
         })

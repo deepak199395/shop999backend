@@ -6,7 +6,8 @@ const { createUserController,
     deleteController } = require("../Mvc/Controllers/AuthController");
 const { createProject,
     getProductsDetails } = require("../Mvc/Controllers/ProductController");
-const { CreateTickets } = require("../Mvc/Controllers/IplTicketsController");
+const { CreateTickets, getTicketInfo } = require("../Mvc/Controllers/IplTicketsController");
+const { CreateBooking, getBookingDetails } = require("../Mvc/Controllers/BookingController");
 const router = express();
 // router GET || POST || PUT || DELETE 
 //users
@@ -19,6 +20,16 @@ router.delete("/delete/:id",deleteController)
 router.post("/CreateProducts", createProject)
 router.get("/getProducts", getProductsDetails)
 module.exports = router;
-
 // ipl tickets api
 router.post("/createTickets",CreateTickets)
+router.get('/getticketsinfo',getTicketInfo)
+
+// tickeBooking api
+router.post('/createBooking',CreateBooking)
+router.get('/getBookingDetails',getBookingDetails)
+
+
+
+module.exports = router;  
+
+

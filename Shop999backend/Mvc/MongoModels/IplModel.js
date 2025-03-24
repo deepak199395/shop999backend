@@ -65,6 +65,10 @@ const iplTickesSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    flag:{
+        type:String,
+        required:true
+    }
 })
 module.exports = mongoose.model('matchTicket', iplTickesSchema);
 
