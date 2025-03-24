@@ -8,7 +8,7 @@ const { createProject,
     getProductsDetails } = require("../Mvc/Controllers/ProductController");
 const { CreateTickets, getTicketInfo } = require("../Mvc/Controllers/IplTicketsController");
 const { CreateBooking, getBookingDetails } = require("../Mvc/Controllers/BookingController");
-const router = express();
+const router = express.Router();
 // router GET || POST || PUT || DELETE 
 //users
 router.post("/create", createUserController)
