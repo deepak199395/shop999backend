@@ -1,13 +1,8 @@
 const express = require("express");
-const { createUserController,
-    getUserController,
-    LoginController,
-    updateUserController,
-    deleteController } = require("../Controllers/AuthController");
-const { createProject,
-    getProductsDetails } = require("../Controllers/ProductController");
+const { createUserController,getUserController, LoginController,updateUserController,deleteController } = require("../Controllers/AuthController");
+const { createProject, getProductsDetails } = require("../Controllers/ProductController");
 const { CreateTickets, getTicketInfo } = require("../Controllers/IplTicketsController");
-const createBooking = require("../Controllers/BookingController");
+const { createBooking, getBookingControllers } = require("../Controllers/BookingController");
 const router = express.Router();
 // router GET || POST || PUT || DELETE 
 //users
@@ -26,6 +21,8 @@ router.get('/getticketsinfo',getTicketInfo)
 
 // Booking api
 router.post("/Booking",createBooking)
+router.get("/getBooking",getBookingControllers)
+
 module.exports = router;  
 
 
