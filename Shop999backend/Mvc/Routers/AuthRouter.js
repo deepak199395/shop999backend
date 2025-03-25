@@ -23,6 +23,7 @@ module.exports = router;
 router.post("/createTickets",CreateTickets)
 router.get('/getticketsinfo',getTicketInfo)
 
+module.exports = router;  
 
 
 
