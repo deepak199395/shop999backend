@@ -7,6 +7,7 @@ const { createUserController,
 const { createProject,
     getProductsDetails } = require("../Controllers/ProductController");
 const { CreateTickets, getTicketInfo } = require("../Controllers/IplTicketsController");
+const createBooking = require("../Controllers/BookingController");
 const router = express.Router();
 // router GET || POST || PUT || DELETE 
 //users
@@ -23,6 +24,8 @@ module.exports = router;
 router.post("/createTickets",CreateTickets)
 router.get('/getticketsinfo',getTicketInfo)
 
+// Booking api
+router.post("/createBooking",createBooking)
 module.exports = router;  
 
 
