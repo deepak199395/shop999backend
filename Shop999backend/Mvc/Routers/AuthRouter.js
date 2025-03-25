@@ -3,10 +3,10 @@ const { createUserController,
     getUserController,
     LoginController,
     updateUserController,
-    deleteController } = require("../Mvc/Controllers/AuthController");
+    deleteController } = require("../Controllers/AuthController");
 const { createProject,
-    getProductsDetails } = require("../Mvc/Controllers/ProductController");
-const { CreateTickets, getTicketInfo } = require("../Mvc/Controllers/IplTicketsController");
+    getProductsDetails } = require("../Controllers/ProductController");
+const { CreateTickets, getTicketInfo } = require("../Controllers/IplTicketsController");
 const router = express.Router();
 // router GET || POST || PUT || DELETE 
 //users
