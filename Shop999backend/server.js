@@ -23,5 +23,4 @@ app.get("/", (req, res) => {
 // API routes
 app.use("/api/auth", require("./Mvc/Routers/AuthRouter"));
 
-// ❌ Remove `app.listen(PORT, ...)` for Vercel
-module.exports = app; // ✅ Export the app for Vercel
+module.exports = app; 

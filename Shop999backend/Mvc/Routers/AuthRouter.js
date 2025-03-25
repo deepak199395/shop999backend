@@ -25,7 +25,7 @@ router.post("/createTickets",CreateTickets)
 router.get('/getticketsinfo',getTicketInfo)
 
 // Booking api
-router.post("/createBooking",createBooking)
+router.post("/Booking",createBooking)
 module.exports = router;  
 
 
