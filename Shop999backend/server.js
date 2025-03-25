@@ -25,8 +25,8 @@ app.use("/api/auth",require("./Mvc/Routers/AuthRouter"))
 
 const PORT=process.env.PORT||8081
 
-app.listen(PORT,()=>{
-    console.log(`server is running on port ${PORT}`.bgCyan.bgGreen)
-})
+// app.listen(PORT,()=>{
+//     console.log(`server is running on port ${PORT}`.bgCyan.bgGreen)
+// })
 
-module.exports = app
+module.exports = app;
