@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "../Shop999backend/server.js",
       "dest": "server.js"
     }
   ]
