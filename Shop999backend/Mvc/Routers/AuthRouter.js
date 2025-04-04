@@ -5,6 +5,7 @@ const { CreateTickets, getTicketInfo } = require("../Controllers/IplTicketsContr
 const { createBooking, getBookingControllers } = require("../Controllers/BookingController");
 const { createExperience, getExperienceController } = require("../Controllers/ExpeianceControlller");
 const { createStackController, getStackController } = require("../Controllers/StackController");
+const { createProjectController, getProjectController } = require("../Controllers/ProjectController");
 const router = express.Router();
 // router GET || POST || PUT || DELETE 
 //users
@@ -33,6 +34,9 @@ router.get('/getexperincedetails',getExperienceController)
 router.post('/cratestack',createStackController)
 router.get('/getstack',getStackController)
 
+// projects api
+router.post('/createproject',createProjectController)
+router.get('/getProjectDetails',getProjectController)
 module.exports = router; 
 
 
