@@ -3,6 +3,7 @@ const { createUserController,getUserController, LoginController,updateUserContro
 const { createProject, getProductsDetails } = require("../Controllers/ProductController");
 const { CreateTickets, getTicketInfo } = require("../Controllers/IplTicketsController");
 const { createBooking, getBookingControllers } = require("../Controllers/BookingController");
+const { createExperience, getExperienceController } = require("../Controllers/ExpeianceControlller");
 const router = express.Router();
 // router GET || POST || PUT || DELETE 
 //users
@@ -23,7 +24,11 @@ router.get('/getticketsinfo',getTicketInfo)
 router.post("/Booking",createBooking)
 router.get("/getBooking",getBookingControllers)
 
-module.exports = router;  
+// experince api 
+router.post('/experince',createExperience)
+router.get('/getexperincedetails',getExperienceController)
+
+module.exports = router; 
 
 
 
