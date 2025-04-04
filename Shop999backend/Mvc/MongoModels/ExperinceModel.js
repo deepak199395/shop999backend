@@ -26,13 +26,13 @@ const experienceSchema = new mongoose.Schema({
         type: String,
     },
     experinceResponsibilities: {
-        type: [String], // Now an array
+        type: String, 
     },
     experinceAchievements: {
-        type: [String], // Now an array
+        type: String, 
     },
     experinceSkills: {
-        type: [String], // Now an array
+        type: String,
     },
     companylogo: {
         type: String,
