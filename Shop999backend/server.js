@@ -23,4 +23,11 @@ app.get("/", (req, res) => {
 // API routes
 app.use("/api/auth", require("./Mvc/Routers/AuthRouter"));
 
+// server running on port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`.bgBlue);
+  }); // server running on port
+
+
 module.exports = app; 
