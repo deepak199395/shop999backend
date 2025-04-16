@@ -85,7 +85,7 @@ const moviesSchema = new  mongoose.Schema({
         type: String,
     },
 
-time
+
 
 
 

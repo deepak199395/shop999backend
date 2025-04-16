@@ -41,7 +41,7 @@ router.get('/getProjectDetails',getProjectController)
 
 
 // Movie API 
-router.post('/createMovie',CreateMovieController)
+router.post('/createMovie/Api',CreateMovieController)
 
 module.exports = router; 
 
