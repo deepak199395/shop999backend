@@ -6,6 +6,7 @@ const { createBooking, getBookingControllers } = require("../Controllers/Booking
 const { createExperience, getExperienceController } = require("../Controllers/ExpeianceControlller");
 const { createStackController, getStackController } = require("../Controllers/StackController");
 const { createProjectController, getProjectController } = require("../Controllers/ProjectController");
+const { CreateMovieController } = require("../Controllers/MovieController");
 const router = express.Router();
 // router GET || POST || PUT || DELETE 
 //users
@@ -37,6 +38,11 @@ router.get('/getstack',getStackController)
 // projects api
 router.post('/createproject',createProjectController)
 router.get('/getProjectDetails',getProjectController)
+
+
+// Movie API 
+router.post('/createMovie',CreateMovieController)
+
 module.exports = router; 
 
 
