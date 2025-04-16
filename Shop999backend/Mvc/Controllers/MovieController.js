@@ -53,4 +53,24 @@ const CreateMovieController = async (req, res) => {
     }
 };
 
-module.exports = { CreateMovieController };
+const getMovieDetailsController=async(req,res)=>{
+   try {
+    const getMovie= await MovieTickets.find()
+    res.status(201).json({
+        status:true,
+        message:"Movie details fetched successfully",
+        flag:"Y",
+        getMovie
+    })
+   } catch (error) {
+    console.error("Error in getMovieDetailsController:", error);
+    return res.status(500).json({
+        status: false,
+        message: "Internal server error",
+        flag: "N"
+        });
+    
+   }
+}
+
+module.exports = { CreateMovieController,getMovieDetailsController};
