@@ -1,8 +1,8 @@
-const MovieTickets = require("../MongoModels/MovieModel")
+const MovieTickets = require("../MongoModels/MovieModel");
+
 const CreateMovieController = async (req, res) => {
     try {
-        const { movieId, MovieName, MovieDescription, MovieImage, MovieRating, MovieReleaseDate, MovieGenre, MovieLanguage } = req.body
-        const createMovie = MovieTickets.create({
+        const {
             movieId,
             MovieName,
             MovieDescription,
@@ -11,20 +11,46 @@ const CreateMovieController = async (req, res) => {
             MovieReleaseDate,
             MovieGenre,
             MovieLanguage
-        })
-        res.status(201).send({
+        } = req.body;
+
+        if (
+            !movieId || !MovieName || !MovieDescription || !MovieImage ||
+            !MovieRating || !MovieReleaseDate || !MovieGenre || !MovieLanguage
+        ) {
+            return res.status(400).json({
+                status: false,
+                message: "All fields are required",
+                flag: "N"
+            });
+        }
+
+        // Create movie
+        const newMovie = await MovieTickets.create({
+            movieId,
+            MovieName,
+            MovieDescription,
+            MovieImage,
+            MovieRating,
+            MovieReleaseDate,
+            MovieGenre,
+            MovieLanguage
+        });
+
+        return res.status(201).json({
             status: true,
-            message: "Movie Created Successfully",
-            flage: "Y",
-            data: createMovie
-        })
+            message: "Movie created successfully",
+            flag: "Y",
+            newMovie
+        });
 
     } catch (error) {
-        res.status(500).send({
+        console.error("Error in CreateMovieController:", error);
+        return res.status(500).json({
             status: false,
-            message: "Error Occured",
-            flage: "N"
-        })
+            message: "Internal server error",
+            flag: "N"
+        });
     }
-}
-module.exports = { CreateMovieController }
+};
+
+module.exports = { CreateMovieController };
