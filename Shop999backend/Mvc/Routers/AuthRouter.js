@@ -7,6 +7,7 @@ const { createExperience, getExperienceController } = require("../Controllers/Ex
 const { createStackController, getStackController } = require("../Controllers/StackController");
 const { createProjectController, getProjectController } = require("../Controllers/ProjectController");
 const { CreateMovieController, getMovieDetailsController } = require("../Controllers/MovieController");
+const { CreateLiveController, getLiveshowController } = require("../Controllers/LiveshowController");
 const router = express.Router();
 // router GET || POST || PUT || DELETE 
 //users
@@ -18,7 +19,7 @@ router.delete("/delete/:id",deleteController)
 //prodcts
 router.post("/CreateProducts", createProject)
 router.get("/getProducts", getProductsDetails)
-module.exports = router;
+
 // ipl tickets api
 router.post("/createTickets",CreateTickets)
 router.get('/getticketsinfo',getTicketInfo)
@@ -43,6 +44,10 @@ router.get('/getProjectDetails',getProjectController)
 // Movie API 
 router.post('/createMovie/Api',CreateMovieController)
 router.get('/getMovie/Api',getMovieDetailsController)
+
+// Live show api
+router.post('/createLiveShow/api',CreateLiveController)
+router.get('/getLiveshow/api',getLiveshowController)
 module.exports = router; 
 
 
