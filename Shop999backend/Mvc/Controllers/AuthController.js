@@ -1,3 +1,4 @@
+const { hashPassword } = require("../../Helper/utils/hash");
 const userModel = require("../MongoModels/UserSchem")
 
 // get userController
@@ -18,8 +19,9 @@ const createUserController = async (req, res) => {
                 message: "User already exists"
             })
         }
+        const hashedPassword = await hashPassword(password)
         // create userr
-        const user = await userModel.create({ name, lastname, email, password, phone })
+        const user = await userModel.create({ name, lastname, email, password:hashedPassword, phone })
         res.status(201).send({
             success: true,
             message: "User created successfully",
