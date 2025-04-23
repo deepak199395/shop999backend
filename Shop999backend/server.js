@@ -4,7 +4,6 @@ const cors = require("cors");
 const morgan = require("morgan");
 const connectDb = require("./Config/Db");
 const dotenv = require("dotenv");
-
 dotenv.config();
 connectDb();
 
@@ -21,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 // API routes
-app.use("/api/auth", require("./Mvc/Routers/AuthRouter"));
+app.use("/back-end/rest-API/Secure", require("./Mvc/Routers/AuthRouter"));
 
 // server running on port
 const PORT = process.env.PORT || 3000;
