@@ -1,4 +1,4 @@
-const { hashPassword } = require("../../Helper/utils/hash");
+const { hashPassword, comparePassword } = require("../../Helper/utils/hash");
 const userModel = require("../MongoModels/UserSchem")
 
 // get userController
@@ -68,11 +68,18 @@ const LoginController = async (req, res) => {
             })
         }
         // find user
-        const user = await userModel.findOne({ email: email, password: password })
+        const user = await userModel.findOne({ email: email })
         if (!user) {
             return res.status(404).send({
                 success: false,
                 message: "incorrect Creadition",
+            })
+        }
+        const isMatch= await comparePassword(password,user.password);
+        if(!isMatch){
+            return res.status(401).send({
+                success: false,
+                message: "Incorrect credentials",
             })
         }
         res.status(201).send({
