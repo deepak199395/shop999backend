@@ -1,5 +1,15 @@
 const express = require("express");
-const { createUserController,getUserController, LoginController,updateUserController,deleteController } = require("../Controllers/AuthController");
+const router = express.Router();
+
+// Import Controllers
+const { 
+  createUserController, 
+  getUserController, 
+  LoginController, 
+  updateUserController, 
+  deleteController 
+} = require("../Controllers/AuthController");
+
 const { createProject, getProductsDetails } = require("../Controllers/ProductController");
 const { CreateTickets, getTicketInfo } = require("../Controllers/IplTicketsController");
 const { createBooking, getBookingControllers } = require("../Controllers/BookingController");
@@ -8,50 +18,55 @@ const { createStackController, getStackController } = require("../Controllers/St
 const { createProjectController, getProjectController } = require("../Controllers/ProjectController");
 const { CreateMovieController, getMovieDetailsController } = require("../Controllers/MovieController");
 const { CreateLiveController, getLiveshowController } = require("../Controllers/LiveshowController");
-const router = express.Router();
-// router GET || POST || PUT || DELETE 
-//users
-router.post("/create", createUserController)
-router.get("/getUser", getUserController)
-router.post("/login", LoginController)
-router.put("/update/:id", updateUserController)
-router.delete("/delete/:id",deleteController)
-//prodcts
-router.post("/CreateProducts", createProject)
-router.get("/getProducts", getProductsDetails)
 
-// ipl tickets api
-router.post("/createTickets",CreateTickets)
-router.get('/getticketsinfo',getTicketInfo)
+// API Prefixes
+const AUTH_API_PREFIX = "/api/v1/auth";
+const PRODUCT_API_PREFIX = "/api/v1/products";
+const TICKET_API_PREFIX = "/api/v1/tickets";
+const BOOKING_API_PREFIX = "/api/v1/bookings";
+const EXPERIENCE_API_PREFIX = "/api/v1/experiences";
+const STACK_API_PREFIX = "/api/v1/stacks";
+const PROJECT_API_PREFIX = "/api/v1/projects";
+const MOVIE_API_PREFIX = "/api/v1/movies";
+const LIVESHOW_API_PREFIX = "/api/v1/liveshows";
 
-// Booking api
-router.post("/Booking",createBooking)
-router.get("/getBooking",getBookingControllers)
+// ====================== Auth Routes ======================
+router.post(`${AUTH_API_PREFIX}/create`, createUserController);
+router.get(`${AUTH_API_PREFIX}/list`, getUserController);
+router.post(`${AUTH_API_PREFIX}/login`, LoginController);
+router.put(`${AUTH_API_PREFIX}/update/:id`, updateUserController);
+router.delete(`${AUTH_API_PREFIX}/delete/:id`, deleteController);
 
-// experince api 
-router.post('/experince',createExperience)
-router.get('/getexperincedetails',getExperienceController)
+// ====================== Product Routes ======================
+router.post(`${PRODUCT_API_PREFIX}/create`, createProject);
+router.get(`${PRODUCT_API_PREFIX}/list`, getProductsDetails);
 
-// stack api
-router.post('/cratestack',createStackController)
-router.get('/getstack',getStackController)
+// ====================== IPL Ticket Routes ======================
+router.post(`${TICKET_API_PREFIX}/create`, CreateTickets);
+router.get(`${TICKET_API_PREFIX}/list`, getTicketInfo);
 
-// projects api
-router.post('/createproject',createProjectController)
-router.get('/getProjectDetails',getProjectController)
+// ====================== Booking Routes ======================
+router.post(`${BOOKING_API_PREFIX}/create`, createBooking);
+router.get(`${BOOKING_API_PREFIX}/list`, getBookingControllers);
 
+// ====================== Experience Routes ======================
+router.post(`${EXPERIENCE_API_PREFIX}/create`, createExperience);
+router.get(`${EXPERIENCE_API_PREFIX}/list`, getExperienceController);
 
-// Movie API 
-router.post('/createMovie/Api',CreateMovieController)
-router.get('/getMovie/Api',getMovieDetailsController)
+// ====================== Stack Routes ======================
+router.post(`${STACK_API_PREFIX}/create`, createStackController);
+router.get(`${STACK_API_PREFIX}/list`, getStackController);
 
-// Live show api
-router.post('/createLiveShow/api',CreateLiveController)
-router.get('/getLiveshow/api',getLiveshowController)
-module.exports = router; 
+// ====================== Project Routes ======================
+router.post(`${PROJECT_API_PREFIX}/create`, createProjectController);
+router.get(`${PROJECT_API_PREFIX}/list`, getProjectController);
 
+// ====================== Movie Routes ======================
+router.post(`${MOVIE_API_PREFIX}/create`, CreateMovieController);
+router.get(`${MOVIE_API_PREFIX}/list`, getMovieDetailsController);
 
+// ====================== Live Show Routes ======================
+router.post(`${LIVESHOW_API_PREFIX}/create`, CreateLiveController);
+router.get(`${LIVESHOW_API_PREFIX}/list`, getLiveshowController);
 
-
-
-
+module.exports = router;
