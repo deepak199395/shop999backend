@@ -6,7 +6,7 @@ const connectDb = require("./Config/Db");
 const dotenv = require("dotenv");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-
+const sessionRoutes= require("./Sesstions&Cookies/SessionRoutes")
 dotenv.config();
 connectDb();
 const app = express();
@@ -30,11 +30,10 @@ app.get("/", (req, res) => {
   res.send("Hello from Shop@99 on Vercel with Sessions!");
 });
 
-
-
-
 // API routes
 app.use("/back-end/rest-API/Secure", require("./Mvc/Routers/AuthRouter"));
+app.use("/back-end/rest-API/Secure", sessionRoutes); 
+
 // server running on port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

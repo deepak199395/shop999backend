@@ -82,12 +82,7 @@ const LoginController = async (req, res) => {
                 message: "Incorrect credentials",
             })
         }
-        req.session.user={
-            id:user._id,
-            email:user.email,
-            name: user.name
-
-        }
+        req.session.user=user;
         res.status(201).send({
             success: true,
             massage: "user Login succefully",
