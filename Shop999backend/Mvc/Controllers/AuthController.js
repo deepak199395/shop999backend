@@ -1,5 +1,5 @@
 const { hashPassword, comparePassword } = require("../../Helper/utils/hash");
-const userModel = require("../MongoModels/UserSchem")
+const userModel = require("../MongoModels/UserSchem");
 
 // get userController
 const createUserController = async (req, res) => {
@@ -82,10 +82,16 @@ const LoginController = async (req, res) => {
                 message: "Incorrect credentials",
             })
         }
+        req.session.user={
+            id:user._id,
+            email:user.email,
+            name: user.name
+
+        }
         res.status(201).send({
             success: true,
             massage: "user Login succefully",
-            user
+            user:req.session.user
         })
     } catch (error) {
         console.log("error while login", error)

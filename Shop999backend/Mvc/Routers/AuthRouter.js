@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const app = express()
 // Import Controllers
 const { 
   createUserController, 
@@ -68,5 +68,33 @@ router.get(`${MOVIE_API_PREFIX}/GetMovieInfo-list/api19`, getMovieDetailsControl
 // ====================== Live Show Routes ======================
 router.post(`${LIVESHOW_API_PREFIX}/Create-LiveShow/api20`, CreateLiveController);
 router.get(`${LIVESHOW_API_PREFIX}/GetLiveShow-list/api21`, getLiveshowController);
+
+// sessions cookies
+router.get("/session/check",(req,res)=>{
+  if(req.session.user){
+    res.send({ loggedIn: true, user: req.session.user });
+  }else{
+    res.send({ loggedIn: false });
+
+  }
+})
+
+// Session-based protected route
+app.get("/protected", (req, res) => {
+  if (req.session.user) {
+    res.send(`Welcome back, ${req.session.user.name}`);
+  } else {
+    res.status(401).send("Unauthorized access");
+  }
+});
+// Logout route
+app.get("/logout", (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).send("Logout failed");
+    }
+    res.send("Logged out successfully");
+  });
+});
 
 module.exports = router;
