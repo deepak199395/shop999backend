@@ -11,7 +11,6 @@ dotenv.config();
 connectDb();
 const app = express();
 // Middleware
-app.use(cors());
 
 const allowedOrigins=[
   "http://localhost:3000", 
