@@ -86,37 +86,32 @@ const LoginController = async (req, res) => {
         }
       // Generate JWT token
       const token =jwt.sign(
-        {id:user._id, email:user.email.email,role:user.role },
+        {id:user._id,email:user.email,role:user.role },
         JWT_SECRET,
         {expiresIn:"1d"}
       );
     // Save user info and token inside session
-    
-        req.session.user={
+      req.session.user={
             id: user._id,
             email: user.email,
             role: user.role,
         };
         req.session.token = token;
-
-
-
-        req.session.user=user;
         res.status(201).send({
             success: true,
             massage: "user Login succefully",
             user:req.session.user,
             token
-        })
+        });
     } catch (error) {
         console.log("error while login", error)
         res.status(500).send({
             success: false,
             message: "Error while login",
             error
-        })
+        });
     }
-}
+};
 const updateUserController = async (req, res) => {
     try {
         const { id } = req.params
