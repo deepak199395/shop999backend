@@ -11,7 +11,6 @@ dotenv.config();
 connectDb();
 const app = express();
 // Middleware
-
 const allowedOrigins=[
   "http://localhost:3000", 
   "https://shop999.vercel.app"  

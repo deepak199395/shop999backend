@@ -1,5 +1,7 @@
 const { hashPassword, comparePassword } = require("../../Helper/utils/hash");
 const userModel = require("../MongoModels/UserSchem");
+const jwt = require('jsonwebtoken');
+const JWT_SECRET=process.env.JWT_SECRET
 
 // get userController
 const createUserController = async (req, res) => {
@@ -82,11 +84,29 @@ const LoginController = async (req, res) => {
                 message: "Incorrect credentials",
             })
         }
+      // Generate JWT token
+      const token =jwt.sign(
+        {id:user._id, email:user.email.email,role:user.role },
+        JWT_SECRET,
+        {expiresIn:"1d"}
+      );
+    // Save user info and token inside session
+    
+        req.session.user={
+            id: user._id,
+            email: user.email,
+            role: user.role,
+        };
+        req.session.token = token;
+
+
+
         req.session.user=user;
         res.status(201).send({
             success: true,
             massage: "user Login succefully",
-            user:req.session.user
+            user:req.session.user,
+            token
         })
     } catch (error) {
         console.log("error while login", error)
