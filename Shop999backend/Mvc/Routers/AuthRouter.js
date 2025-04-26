@@ -32,7 +32,7 @@ const MOVIE_API_PREFIX = "/api/v1/movies";
 const LIVESHOW_API_PREFIX = "/api/v1/liveshows";
 
 // ====================== Auth Routes ========================================
-router.post(`${AUTH_API_PREFIX}/Create-User/api1`, createUserController);
+router.post(`${AUTH_API_PREFIX}/Create-User/api1`,requireSignIn, createUserController);
 router.get(`${AUTH_API_PREFIX}/GetUser-list/api2`, getUserController);
 router.post(`${AUTH_API_PREFIX}/Login-User/api3`,LoginController);
 router.put(`${AUTH_API_PREFIX}/Update-User/api4/:id`, updateUserController);
