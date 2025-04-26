@@ -1,7 +1,7 @@
 const { hashPassword, comparePassword } = require("../../Helper/utils/hash");
 const userModel = require("../MongoModels/UserSchem");
 const jwt = require('jsonwebtoken');
-const JWT_SECRET=process.env.JWT_SECRET
+const JWT_SECRET=process.env.JWT_SECRET || "myVerySecretKey123";
 
 // get userController
 const createUserController = async (req, res) => {
@@ -97,9 +97,10 @@ const LoginController = async (req, res) => {
             role: user.role,
         };
         req.session.token = token;
+
         res.status(201).send({
             success: true,
-            massage: "user Login succefully",
+            massage: "User login successfully",
             user:req.session.user,
             token
         });
@@ -108,7 +109,7 @@ const LoginController = async (req, res) => {
         res.status(500).send({
             success: false,
             message: "Error while login",
-            error
+            error:error.message
         });
     }
 };
