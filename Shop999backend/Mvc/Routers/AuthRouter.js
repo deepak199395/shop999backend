@@ -32,7 +32,7 @@ const MOVIE_API_PREFIX = "/api/v1/movies";
 const LIVESHOW_API_PREFIX = "/api/v1/liveshows";
 
 // ====================== Auth Routes ========================================
-router.post(`${AUTH_API_PREFIX}/Create-User/api1`,requireSignIn, createUserController);
+router.post(`${AUTH_API_PREFIX}/Create-User/api1`,createUserController);
 router.get(`${AUTH_API_PREFIX}/GetUser-list/api2`, requireSignIn,getUserController);
 router.post(`${AUTH_API_PREFIX}/Login-User/api3`,LoginController);
 router.put(`${AUTH_API_PREFIX}/Update-User/api4/:id`, updateUserController);
@@ -43,31 +43,31 @@ router.post(`${PRODUCT_API_PREFIX}/Create-Products/api6`, createProject);
 router.get(`${PRODUCT_API_PREFIX}/GetProducts-list/api7`, getProductsDetails);
 
 // ====================== IPL Ticket Routes ======================
-router.post(`${TICKET_API_PREFIX}/Create-IPLTickets/api8`,requireSignIn, CreateTickets);
+router.post(`${TICKET_API_PREFIX}/Create-IPLTickets/api8`, CreateTickets);
 router.get(`${TICKET_API_PREFIX}/GetIPLTickets-list/api9`, getTicketInfo);
 
 // ====================== Booking Routes ======================
-router.post(`${BOOKING_API_PREFIX}/Create-Booking/api10`,requireSignIn, createBooking);
+router.post(`${BOOKING_API_PREFIX}/Create-Booking/api10`, createBooking);
 router.get(`${BOOKING_API_PREFIX}/Get-Booking-list/api11`, getBookingControllers);
 
 // ====================== Experience Routes ======================
-router.post(`${EXPERIENCE_API_PREFIX}/Create-Experience/api12`,requireSignIn, createExperience);
+router.post(`${EXPERIENCE_API_PREFIX}/Create-Experience/api12`, createExperience);
 router.get(`${EXPERIENCE_API_PREFIX}/GetExperience-list/api13`, getExperienceController);
 
 // ====================== Stack Routes ======================
-router.post(`${STACK_API_PREFIX}/Create-TeachStack/api14`,requireSignIn, createStackController);
+router.post(`${STACK_API_PREFIX}/Create-TeachStack/api14`, createStackController);
 router.get(`${STACK_API_PREFIX}/GetTeachStack-list/api15`, getStackController);
 
 // ====================== Project Routes ======================
-router.post(`${PROJECT_API_PREFIX}/Create-Projects/api16`,requireSignIn, createProjectController);
+router.post(`${PROJECT_API_PREFIX}/Create-Projects/api16`, createProjectController);
 router.get(`${PROJECT_API_PREFIX}/GetProjects-list/api17`, getProjectController);
 
 // ====================== Movie Routes ======================
-router.post(`${MOVIE_API_PREFIX}/Create-MovieInfo/api18`,requireSignIn, CreateMovieController);
+router.post(`${MOVIE_API_PREFIX}/Create-MovieInfo/api18`, CreateMovieController);
 router.get(`${MOVIE_API_PREFIX}/GetMovieInfo-list/api19`, getMovieDetailsController);
 
 // ====================== Live Show Routes ======================
-router.post(`${LIVESHOW_API_PREFIX}/Create-LiveShow/api20`,requireSignIn, CreateLiveController);
+router.post(`${LIVESHOW_API_PREFIX}/Create-LiveShow/api20`, CreateLiveController);
 router.get(`${LIVESHOW_API_PREFIX}/GetLiveShow-list/api21`, getLiveshowController);
 
 module.exports = router;
