@@ -26,4 +26,26 @@ const DueLoanController = async (req, res) => {
         })
     }
 }
-module.exports = DueLoanController;
+
+const getLoandeuDetailsController=async(req,res)=>{
+    try {
+        const loandue= await LoanDueModel.find()
+        res.status(200).send({
+            message: "Loan Due Details Fetched Successfully",
+            success: true,
+            data: loandue
+            })
+
+    } catch (error) {
+        res.status(500).send({
+            message: "Error Occured",
+            error: error.message
+            })
+
+        
+    }
+
+}
+
+
+module.exports = { DueLoanController, getLoandeuDetailsController };

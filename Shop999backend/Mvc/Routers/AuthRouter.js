@@ -19,7 +19,8 @@ const { createProjectController, getProjectController } = require("../Controller
 const { CreateMovieController, getMovieDetailsController } = require("../Controllers/MovieController");
 const { CreateLiveController, getLiveshowController } = require("../Controllers/LiveshowController");
 const { requireSignIn } = require("../../MiddleWere/authMiddleware");
-const DueLoanController = require("../Controllers/LoanDueController");
+const {DueLoanController, getLoandeuDetailsController} = require("../Controllers/LoanDueController");
+
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
 const PRODUCT_API_PREFIX = "/api/v1/products";
@@ -71,6 +72,8 @@ router.post(`${LIVESHOW_API_PREFIX}/Create-LiveShow/api20`, CreateLiveController
 router.get(`${LIVESHOW_API_PREFIX}/GetLiveShow-list/api21`, getLiveshowController);
 
 // ======================= LoanDue ===============================
-router.post(`${LOAN_API_PREFIX}/Create-LoanDue/api22`, DueLoanController);
+router.post(`${LOAN_API_PREFIX}/Create-LoanDue/api22`,DueLoanController);
+router.get(`${LOAN_API_PREFIX}/GetLoanDue-list/api23`,getLoandeuDetailsController);
+
 
 module.exports = router;
