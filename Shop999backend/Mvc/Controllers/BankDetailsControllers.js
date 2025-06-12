@@ -1,9 +1,9 @@
-const BankDetails= require("../MongoModels/RealCodeModel")
+const Bankmodel= require("../MongoModels/RealCodeModel")
 const BankDetailsController = async (req, res) => {
   try {
     const { accnum,acctype,number,email,emailadd} = req.body;
 
-    const newBank = await BankDetails.create({
+    const newBank = await Bankmodel.create({
       accnum,
       acctype,
       number,
