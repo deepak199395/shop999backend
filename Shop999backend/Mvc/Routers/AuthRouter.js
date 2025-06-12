@@ -20,6 +20,7 @@ const { CreateMovieController, getMovieDetailsController } = require("../Control
 const { CreateLiveController, getLiveshowController } = require("../Controllers/LiveshowController");
 const { requireSignIn } = require("../../MiddleWere/authMiddleware");
 const {DueLoanController, getLoandeuDetailsController} = require("../Controllers/LoanDueController");
+const BankDetailsController = require("../Controllers/BankDetailsControllers");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
@@ -32,6 +33,8 @@ const PROJECT_API_PREFIX = "/api/v1/projects";
 const MOVIE_API_PREFIX = "/api/v1/movies";
 const LIVESHOW_API_PREFIX = "/api/v1/liveshows";
 const LOAN_API_PREFIX = "/api/v1/loans";
+const BANK_API_PREFIX = "/api/v1/bankdetails";
+
 // ====================== Auth Routes ========================================
 router.post(`${AUTH_API_PREFIX}/Create-User/api1`,createUserController);
 router.get(`${AUTH_API_PREFIX}/GetUser-list/api2`, requireSignIn,getUserController);
@@ -75,5 +78,6 @@ router.get(`${LIVESHOW_API_PREFIX}/GetLiveShow-list/api21`, getLiveshowControlle
 router.post(`${LOAN_API_PREFIX}/Create-LoanDue/api22`,DueLoanController);
 router.get(`${LOAN_API_PREFIX}/GetLoanDue-list/api23`,getLoandeuDetailsController);
 
-
+//==========================BankDatails=============================
+router.post(`${BANK_API_PREFIX}/Create-BankDetails/api24`,BankDetailsController);
 module.exports = router;
