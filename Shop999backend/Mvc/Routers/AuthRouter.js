@@ -19,7 +19,6 @@ const { createProjectController, getProjectController } = require("../Controller
 const { CreateMovieController, getMovieDetailsController } = require("../Controllers/MovieController");
 const { CreateLiveController, getLiveshowController } = require("../Controllers/LiveshowController");
 const { requireSignIn } = require("../../MiddleWere/authMiddleware");
-
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
 const PRODUCT_API_PREFIX = "/api/v1/products";
@@ -69,5 +68,7 @@ router.get(`${MOVIE_API_PREFIX}/GetMovieInfo-list/api19`, getMovieDetailsControl
 // ====================== Live Show Routes ======================
 router.post(`${LIVESHOW_API_PREFIX}/Create-LiveShow/api20`, CreateLiveController);
 router.get(`${LIVESHOW_API_PREFIX}/GetLiveShow-list/api21`, getLiveshowController);
+
+
 
 module.exports = router;
