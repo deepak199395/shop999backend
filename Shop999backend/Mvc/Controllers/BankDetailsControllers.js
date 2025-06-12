@@ -2,7 +2,7 @@ const BookingTicket = require("../MongoModels/BookingModel");
 
 const BankDetailsController = async (req, res) => {
   try {
-    const { accnum, acctype, number, email, emailadd } = req.body;
+    const { accnum,acctype,number,email,emailadd} = req.body;
 
     const newBank = await BankDetails.create({
       accnum,
@@ -13,14 +13,14 @@ const BankDetailsController = async (req, res) => {
     });
 
     res.status(201).json({
-      message: "Bank details added successfully",
+      message: "Account informa on submi ed successfully",
       success: true,
       newBank
     });
   } catch (error) {
     res.status(500).json({
-      message: "Failed to add bank details",
       success: false,
+      message: "Missing or invalid fields",
       error: error.message
     });
   }

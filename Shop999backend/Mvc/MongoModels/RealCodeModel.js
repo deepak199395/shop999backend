@@ -8,9 +8,8 @@ const bankModelSchema= mongoose.Schema({
         type:String,
     },
     number:{
-        type:String,
-
-    },
+        type:Number,
+        },
     email:{
         type:String,
     },
