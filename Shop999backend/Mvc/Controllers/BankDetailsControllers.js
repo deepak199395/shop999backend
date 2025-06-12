@@ -1,5 +1,4 @@
-const BookingTicket = require("../MongoModels/BookingModel");
-
+const BankDetails= require("../MongoModels/RealCodeModel")
 const BankDetailsController = async (req, res) => {
   try {
     const { accnum,acctype,number,email,emailadd} = req.body;
