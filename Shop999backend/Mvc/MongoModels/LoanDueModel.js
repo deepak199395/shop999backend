@@ -28,7 +28,26 @@ const DueLoanSchema = mongoose.Schema({
     loanPaymentMode: {
         type: String,
     },
+    payedEMInumber: {
+        type: Number
+    },
+    payedEMIAmount: {
+        type: Number
+    },
+
+    RemainingEMInumber: {
+        type: Number
+    },
+    EmiAmmount: {
+        type: Number
+    },
+    RemainingEmiAmmount: {
+        type: Number
+    },
+    DateOfEMI: {
+        type: String
+    }
 
 })
-module.exports=mongoose.model("LoanDueModel",DueLoanSchema)
+module.exports = mongoose.model("LoanDueModel", DueLoanSchema)
 
