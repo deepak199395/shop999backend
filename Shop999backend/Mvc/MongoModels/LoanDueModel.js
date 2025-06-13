@@ -5,7 +5,7 @@ const DueLoanSchema = mongoose.Schema({
         type: String,
     },
     loanAmount: {
-        type: Number,
+        type: String,
     },
     loanStartDate: {
         type: String,
@@ -14,10 +14,10 @@ const DueLoanSchema = mongoose.Schema({
         type: String,
     },
     loanDurationInMonth: {
-        type: Number,
+        type: String,
     },
     loanInterestRate: {
-        type: Number,
+        type: String,
     },
     loanStatus: {
         type: String,
@@ -29,20 +29,20 @@ const DueLoanSchema = mongoose.Schema({
         type: String,
     },
     payedEMInumber: {
-        type: Number
+        type: String,
     },
     payedEMIAmount: {
-        type: Number
+        type: String,
     },
 
     RemainingEMInumber: {
-        type: Number
+        type: String,
     },
     EmiAmmount: {
-        type: Number
+        type: String,
     },
     RemainingEmiAmmount: {
-        type: Number
+        type: String,
     },
     DateOfEMI: {
         type: String
