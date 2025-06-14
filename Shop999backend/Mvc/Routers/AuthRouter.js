@@ -21,6 +21,7 @@ const { CreateLiveController, getLiveshowController } = require("../Controllers/
 const { requireSignIn } = require("../../MiddleWere/authMiddleware");
 const {DueLoanController, getLoandeuDetailsController} = require("../Controllers/LoanDueController");
 const BankDetailsController = require("../Controllers/BankDetailsControllers");
+const { profileController, getProfileDetailsController } = require("../Controllers/CoroProlifeController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
@@ -34,7 +35,8 @@ const MOVIE_API_PREFIX = "/api/v1/movies";
 const LIVESHOW_API_PREFIX = "/api/v1/liveshows";
 const LOAN_API_PREFIX = "/api/v1/loans";
 const BANK_API_PREFIX = "/api/v1/bankdetails";
-
+const PROFILE_API_PREFIX="/api/v1/profileDetails"
+const GETPROFILE_API_PREFIX= "/api/v1/getProfile"
 // ====================== Auth Routes ========================================
 router.post(`${AUTH_API_PREFIX}/Create-User/api1`,createUserController);
 router.get(`${AUTH_API_PREFIX}/GetUser-list/api2`, requireSignIn,getUserController);
@@ -74,10 +76,15 @@ router.get(`${MOVIE_API_PREFIX}/GetMovieInfo-list/api19`, getMovieDetailsControl
 router.post(`${LIVESHOW_API_PREFIX}/Create-LiveShow/api20`, CreateLiveController);
 router.get(`${LIVESHOW_API_PREFIX}/GetLiveShow-list/api21`, getLiveshowController);
 
-// ======================= LoanDue ===============================
+// ======================= CORO LoanDue ===============================
 router.post(`${LOAN_API_PREFIX}/Create-LoanDue/api22`,DueLoanController);
 router.get(`${LOAN_API_PREFIX}/GetLoanDue-list/api23`,getLoandeuDetailsController);
 
-//==========================BankDatails=============================
+//========================== CORO BankDatails=============================
 router.post(`${BANK_API_PREFIX}/Create-BankDetails/api24`,BankDetailsController);
+
+//========================== CORO PROFILE Details=============================
+router.post(`${PROFILE_API_PREFIX}/Create-Profile/api25`,profileController)
+router.get(`${GETPROFILE_API_PREFIX}/get-profile/api26`,getProfileDetailsController)
+
 module.exports = router;
