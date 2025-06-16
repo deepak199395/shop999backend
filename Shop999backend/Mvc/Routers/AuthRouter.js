@@ -93,7 +93,7 @@ router.get(`${GETPROFILE_API_PREFIX}/get-profile/api26`,getProfileDetailsControl
 
 //========================== CORO expesss=============================
 router.post(`${EXPRESS_API_PREFIX}/Create-Express/api27`,createExpense)
-router.post(`${GET_EXPRESS_API_PREFIx}/get-Express/api28`,createExpense)
+router.get(`${GET_EXPRESS_API_PREFIx}/get-Express/api28`,createExpense)
 
 
 module.exports = router;
