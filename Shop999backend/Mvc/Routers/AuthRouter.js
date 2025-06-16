@@ -38,8 +38,8 @@ const LOAN_API_PREFIX = "/api/v1/loans";
 const BANK_API_PREFIX = "/api/v1/bankdetails";
 const PROFILE_API_PREFIX="/api/v1/profileDetails"
 const GETPROFILE_API_PREFIX= "/api/v1/getProfile"
-const EXPRESS_API_PREFIX = "api/v1/create-expess"
-const GET_EXPRESS_API_PREFIx = "api/v1/get-express"
+const EXPRESS_API_PREFIX = "/api/v1/createEexpess"
+const GET_EXPRESS_API_PREFIX = "/api/v1/getExpress"
 
 // ====================== Auth Routes ========================================
 router.post(`${AUTH_API_PREFIX}/Create-User/api1`,createUserController);
@@ -93,7 +93,7 @@ router.get(`${GETPROFILE_API_PREFIX}/get-profile/api26`,getProfileDetailsControl
 
 //========================== CORO expesss=============================
 router.post(`${EXPRESS_API_PREFIX}/Create-Express/api27`,createExpense)
-router.get(`${GET_EXPRESS_API_PREFIx}/get-Express/api28`,createExpense)
+router.get(`${GET_EXPRESS_API_PREFIX}/get-Express/api28`,createExpense)
 
 
 module.exports = router;
