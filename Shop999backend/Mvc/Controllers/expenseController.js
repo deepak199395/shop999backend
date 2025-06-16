@@ -2,9 +2,9 @@ const Profilemodel = require("../MongoModels/CoroexpenseModel")
 
 const CreateExpessController=async(req,res)=>{
   try {
-    const {ammunt,date,description}= req.body
+    const {DayAmmount,date,description}= req.body
     const creatExpess= await Profilemodel.create({
-      ammunt,
+      DayAmmount,
       date,
       description
     })
