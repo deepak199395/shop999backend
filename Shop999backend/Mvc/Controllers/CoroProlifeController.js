@@ -16,7 +16,7 @@ const profileController=async(req,res)=>{
       
     })
     res.status(201).send({
-        success:false,
+        success:true,
         message:"Profile Created Successfully",
         newProfile
     })
