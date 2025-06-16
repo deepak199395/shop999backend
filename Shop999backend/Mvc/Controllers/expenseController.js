@@ -22,9 +22,9 @@ const CreateExpessController=async(req,res)=>{
     
   }
 }
-const getExpessController =()=>{
+const getExpessController =async(req,res)=>{
   try {
-    const getExpess= ExpessModel.find()
+    const getExpess=await ExpessModel.find()
     res.status(201).send({
       success: true,
       message:"Expense fetched successfully",
