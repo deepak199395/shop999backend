@@ -40,6 +40,7 @@ const PROFILE_API_PREFIX="/api/v1/profileDetails"
 const GETPROFILE_API_PREFIX= "/api/v1/getProfile"
 const EXPRESS_API_PREFIX = "api/v1/create-expess"
 const GET_EXPRESS_API_PREFIx = "api/v1/get-express"
+
 // ====================== Auth Routes ========================================
 router.post(`${AUTH_API_PREFIX}/Create-User/api1`,createUserController);
 router.get(`${AUTH_API_PREFIX}/GetUser-list/api2`, requireSignIn,getUserController);

@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const expenseSchema = new mongoose.Schema({
   date: {
-    type: String, // Format: YYYY-MM-DD
+    type: String, 
   },
   amount: {
-    type: Number,
+    type: String, 
   },
   description: {
     type: String,
