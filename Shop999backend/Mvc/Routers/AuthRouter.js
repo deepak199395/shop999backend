@@ -22,6 +22,7 @@ const { requireSignIn } = require("../../MiddleWere/authMiddleware");
 const {DueLoanController, getLoandeuDetailsController} = require("../Controllers/LoanDueController");
 const BankDetailsController = require("../Controllers/BankDetailsControllers");
 const { profileController, getProfileDetailsController } = require("../Controllers/CoroProlifeController");
+const { createExpense } = require("../Controllers/expenseController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
@@ -37,6 +38,8 @@ const LOAN_API_PREFIX = "/api/v1/loans";
 const BANK_API_PREFIX = "/api/v1/bankdetails";
 const PROFILE_API_PREFIX="/api/v1/profileDetails"
 const GETPROFILE_API_PREFIX= "/api/v1/getProfile"
+const EXPRESS_API_PREFIX = "api/v1/create-expess"
+const GET_EXPRESS_API_PREFIx = "api/v1/get-express"
 // ====================== Auth Routes ========================================
 router.post(`${AUTH_API_PREFIX}/Create-User/api1`,createUserController);
 router.get(`${AUTH_API_PREFIX}/GetUser-list/api2`, requireSignIn,getUserController);
@@ -86,5 +89,10 @@ router.post(`${BANK_API_PREFIX}/Create-BankDetails/api24`,BankDetailsController)
 //========================== CORO PROFILE Details=============================
 router.post(`${PROFILE_API_PREFIX}/Create-Profile/api25`,profileController)
 router.get(`${GETPROFILE_API_PREFIX}/get-profile/api26`,getProfileDetailsController)
+
+//========================== CORO expesss=============================
+router.post(`${EXPRESS_API_PREFIX}/Create-Express/api27`,createExpense)
+router.post(`${GET_EXPRESS_API_PREFIx}/get-Express/api28`,createExpense)
+
 
 module.exports = router;
