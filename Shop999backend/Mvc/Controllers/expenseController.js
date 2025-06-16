@@ -1,11 +1,15 @@
+// Create a new expense
 const ExpenseModel = require("../MongoModels/ExperinceModel");
 
-// Create a new expense
 const createExpense = async (req, res) => {
   try {
-    const {date,amount,description } = req.body;
+    const { date, amount, description } = req.body;
 
-    const expense = await ExpenseModel.create({ date, amount, description });
+    const expense = await ExpenseModel.create({
+      date,
+      amount,
+      description,
+    });
 
     res.status(201).send({
       message: "Expense created successfully",
@@ -16,10 +20,11 @@ const createExpense = async (req, res) => {
     res.status(500).send({
       message: "Error creating expense",
       success: false,
-      error: error.message,
+      error,
     });
   }
 };
+
 
 // Get all expenses
 const getExpenses = async (req, res) => {
@@ -39,7 +44,6 @@ const getExpenses = async (req, res) => {
     });
   }
 };
-
 module.exports = {
   createExpense,
   getExpenses,
