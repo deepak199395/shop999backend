@@ -1,50 +1,26 @@
-// Create a new expense
-const ExpenseModel = require("../MongoModels/ExperinceModel");
+const Profilemodel = require("../MongoModels/CoroexpenseModel")
 
-const createExpense = async (req, res) => {
+const CreateExpessController=async(req,res)=>{
   try {
-    const { date, amount, description } = req.body;
-
-    const expense = await ExpenseModel.create({
+    const {ammunt,date,description}= req.body
+    const creatExpess= await Profilemodel.create({
+      ammunt,
       date,
-      amount,
-      description,
-    });
-
+      description
+    })
     res.status(201).send({
-      message: "Expense created successfully",
       success: true,
-      expense,
-    });
-  } catch (error) {
-    res.status(500).send({
-      message: "Error creating expense",
-      success: false,
-      error,
-    });
+      message:"Expense created successfully",
+      data:creatExpess
+    })
+} catch (error) {
+  res.status(500).send({
+    success: false,
+    message: "Error creating expense",
+    error: error.message
+    })
+    
   }
-};
+}
+module.exports=CreateExpessController; 
 
-
-// Get all expenses
-const getExpenses = async (req, res) => {
-  try {
-    const expenses = await ExpenseModel.find();
-
-    res.status(200).send({
-      message: "Expenses fetched successfully",
-      success: true,
-      expenses,
-    });
-  } catch (error) {
-    res.status(500).send({
-      message: "Error fetching expenses",
-      success: false,
-      error: error.message,
-    });
-  }
-};
-module.exports = {
-  createExpense,
-  getExpenses,
-};

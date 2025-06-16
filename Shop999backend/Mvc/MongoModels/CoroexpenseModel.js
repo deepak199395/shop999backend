@@ -1,15 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose")
 
-const expenseSchema = new mongoose.Schema({
-  date: {
-    type: String, 
+const expenseSchema = mongoose.Schema({
+  ammunt: {
+    type: String,
   },
-  amount: {
-    type: String, 
+  date: {
+    type: String,
   },
   description: {
     type: String,
   },
-}, { timestamps: true });
 
-module.exports = mongoose.model('ExpenseModel', expenseSchema);
+})
+module.exports= mongoose.model("ExpessModel",expenseSchema)
+
