@@ -22,5 +22,23 @@ const CreateExpessController=async(req,res)=>{
     
   }
 }
-module.exports=CreateExpessController; 
+const getExpessController =()=>{
+  try {
+    const getExpess= Profilemodel.find()
+    res.status(201).send({
+      success: true,
+      message:"Expense fetched successfully",
+      data:getExpess
+    })
+
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      message: "Error fetching expense",
+      error: error.message
+      })
+    
+  }
+}
+module.exports={CreateExpessController,getExpessController}; 
 
