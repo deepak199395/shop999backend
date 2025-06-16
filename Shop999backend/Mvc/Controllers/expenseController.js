@@ -3,7 +3,7 @@ const ExpenseModel = require("../MongoModels/ExperinceModel");
 // Create a new expense
 const createExpense = async (req, res) => {
   try {
-    const { date, amount, description } = req.body;
+    const {date,amount,description } = req.body;
 
     const expense = await ExpenseModel.create({ date, amount, description });
 
