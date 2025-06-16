@@ -1,9 +1,9 @@
-const Profilemodel = require("../MongoModels/CoroexpenseModel")
+const ExpessModel = require("../MongoModels/CoroexpenseModel")
 
 const CreateExpessController=async(req,res)=>{
   try {
     const {DayAmmount,date,description}= req.body
-    const creatExpess= await Profilemodel.create({
+    const creatExpess= await ExpessModel.create({
       DayAmmount,
       date,
       description
@@ -24,7 +24,7 @@ const CreateExpessController=async(req,res)=>{
 }
 const getExpessController =()=>{
   try {
-    const getExpess= Profilemodel.find()
+    const getExpess= ExpessModel.find()
     res.status(201).send({
       success: true,
       message:"Expense fetched successfully",
