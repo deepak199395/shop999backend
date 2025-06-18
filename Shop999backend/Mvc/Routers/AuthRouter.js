@@ -22,7 +22,7 @@ const { requireSignIn } = require("../../MiddleWere/authMiddleware");
 const {DueLoanController, getLoandeuDetailsController, updateLoanController} = require("../Controllers/LoanDueController");
 const BankDetailsController = require("../Controllers/BankDetailsControllers");
 const { profileController, getProfileDetailsController } = require("../Controllers/CoroProlifeController");
-const { CreateExpessController, getExpessController } = require("../Controllers/expenseController");
+const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/expenseController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
@@ -41,6 +41,9 @@ const GETPROFILE_API_PREFIX= "/api/v1/getProfile"
 const EXPRESS_API_PREFIX = "/api/v1/createEexpess"
 const GET_EXPRESS_API_PREFIX = "/api/v1/getExpress"
 const PUT_EXPENSESS_API_PRIFIX="/api/v1/putexpensess"
+const PUT_EXPENSEE_API_PRIFIX = "/api/v1/putDeallyExpess"
+const DELETE_EXPENSEE_API_PRIFIX = "/api/v1/deleteDeallyExpess"
+
 // ====================== Auth Routes ========================================
 router.post(`${AUTH_API_PREFIX}/Create-User/api1`,createUserController);
 router.get(`${AUTH_API_PREFIX}/GetUser-list/api2`, requireSignIn,getUserController);
@@ -83,6 +86,7 @@ router.get(`${LIVESHOW_API_PREFIX}/GetLiveShow-list/api21`, getLiveshowControlle
 // ======================= CORO LoanDue ===============================
 router.post(`${LOAN_API_PREFIX}/Create-LoanDue/api22`,DueLoanController);
 router.get(`${LOAN_API_PREFIX}/GetLoanDue-list/api23`,getLoandeuDetailsController);
+router.put(`${PUT_EXPENSESS_API_PRIFIX}/put-expensess/api29/:id`,updateLoanController)
 
 //========================== CORO BankDatails=============================
 router.post(`${BANK_API_PREFIX}/Create-BankDetails/api24`,BankDetailsController);
@@ -94,7 +98,7 @@ router.get(`${GETPROFILE_API_PREFIX}/get-profile/api26`,getProfileDetailsControl
 //========================== CORO expesss=============================
 router.post(`${EXPRESS_API_PREFIX}/Create-Express/api27`,CreateExpessController)
 router.get(`${GET_EXPRESS_API_PREFIX}/get-Express/api28`,getExpessController)
+router.put(`${PUT_EXPENSEE_API_PRIFIX}/put-dellyExpensess/api29/:id`,updateExpenssController)
+router.delete(`${DELETE_EXPENSEE_API_PRIFIX}/put-dellyExpenses/api30/:id`,DeleteExpenssController)
 
-//========================== CORO expesss edit=============================
-router.put(`${PUT_EXPENSESS_API_PRIFIX}/put-expensess/api29/:id`,updateLoanController)
 module.exports = router;
