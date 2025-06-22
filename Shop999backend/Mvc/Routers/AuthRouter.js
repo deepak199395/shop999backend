@@ -23,6 +23,7 @@ const {DueLoanController, getLoandeuDetailsController, updateLoanController} = r
 const BankDetailsController = require("../Controllers/BankDetailsControllers");
 const { profileController, getProfileDetailsController } = require("../Controllers/CoroProlifeController");
 const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/expenseController");
+const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete } = require("../Controllers/CoroUserController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
@@ -36,14 +37,20 @@ const MOVIE_API_PREFIX = "/api/v1/movies";
 const LIVESHOW_API_PREFIX = "/api/v1/liveshows";
 const LOAN_API_PREFIX = "/api/v1/loans";
 const BANK_API_PREFIX = "/api/v1/bankdetails";
-const PROFILE_API_PREFIX="/api/v1/profileDetails"
-const GETPROFILE_API_PREFIX= "/api/v1/getProfile"
-const EXPRESS_API_PREFIX = "/api/v1/createEexpess"
-const GET_EXPRESS_API_PREFIX = "/api/v1/getExpress"
-const PUT_EXPENSESS_API_PRIFIX="/api/v1/putexpensess"
-const PUT_EXPENSEE_API_PRIFIX = "/api/v1/putDeallyExpess"
-const DELETE_EXPENSEE_API_PRIFIX = "/api/v1/deleteDeallyExpess"
+const PROFILE_API_PREFIX="/api/v1/profileDetails";
+const GETPROFILE_API_PREFIX= "/api/v1/getProfile";
+const EXPRESS_API_PREFIX = "/api/v1/createEexpess";
+const GET_EXPRESS_API_PREFIX = "/api/v1/getExpress";
+const PUT_EXPENSESS_API_PRIFIX="/api/v1/putexpensess";
+const PUT_EXPENSEE_API_PRIFIX = "/api/v1/putDeallyExpess";
+const DELETE_EXPENSEE_API_PRIFIX = "/api/v1/deleteDeallyExpess";
 
+// ==========================coro user ===================================
+const CREATE_CORO_USER_API_PREFIX = "/api/v1/createcoroUser";
+const GET_CORO_USER_API_PREFIX= "/api/v1/getcoroUser";
+const GET_BYID_CORO_USER_API_PREFIX="/api/v1/getCoroUserById";
+const UPDATE_CORO_USER_API_PREFIX= "/api/v1/updatecoroUserById";
+const DELETE_CORO_USER_API_PREFIX= "/api/v1/deletecoroUserById";
 // ====================== Auth Routes ========================================
 router.post(`${AUTH_API_PREFIX}/Create-User/api1`,createUserController);
 router.get(`${AUTH_API_PREFIX}/GetUser-list/api2`, requireSignIn,getUserController);
@@ -86,19 +93,26 @@ router.get(`${LIVESHOW_API_PREFIX}/GetLiveShow-list/api21`, getLiveshowControlle
 // ======================= CORO LoanDue ===============================
 router.post(`${LOAN_API_PREFIX}/Create-LoanDue/api22`,DueLoanController);
 router.get(`${LOAN_API_PREFIX}/GetLoanDue-list/api23`,getLoandeuDetailsController);
-router.put(`${PUT_EXPENSESS_API_PRIFIX}/put-expensess/api29/:id`,updateLoanController)
+router.put(`${PUT_EXPENSESS_API_PRIFIX}/put-expensess/api29/:id`,updateLoanController);
 
 //========================== CORO BankDatails=============================
 router.post(`${BANK_API_PREFIX}/Create-BankDetails/api24`,BankDetailsController);
 
 //========================== CORO PROFILE Details=============================
-router.post(`${PROFILE_API_PREFIX}/Create-Profile/api25`,profileController)
-router.get(`${GETPROFILE_API_PREFIX}/get-profile/api26`,getProfileDetailsController)
+router.post(`${PROFILE_API_PREFIX}/Create-Profile/api25`,profileController);
+router.get(`${GETPROFILE_API_PREFIX}/get-profile/api26`,getProfileDetailsController);
 
 //========================== CORO expesss=============================
-router.post(`${EXPRESS_API_PREFIX}/Create-Express/api27`,CreateExpessController)
-router.get(`${GET_EXPRESS_API_PREFIX}/get-Express/api28`,getExpessController)
-router.put(`${PUT_EXPENSEE_API_PRIFIX}/put-dellyExpensess/api29/:id`,updateExpenssController)
-router.delete(`${DELETE_EXPENSEE_API_PRIFIX}/put-dellyExpenses/api30/:id`,DeleteExpenssController)
+router.post(`${EXPRESS_API_PREFIX}/Create-Express/api27`,CreateExpessController);
+router.get(`${GET_EXPRESS_API_PREFIX}/get-Express/api28`,getExpessController);
+router.put(`${PUT_EXPENSEE_API_PRIFIX}/put-dellyExpensess/api29/:id`,updateExpenssController);
+router.delete(`${DELETE_EXPENSEE_API_PRIFIX}/put-dellyExpenses/api30/:id`,DeleteExpenssController);
+
+// ==========================coro user ===================================
+router.post(`${CREATE_CORO_USER_API_PREFIX}/Create-CoroUser/api31`,CreateCoroUser);
+router.get(`${GET_CORO_USER_API_PREFIX}/get-CoroUser/api32`,CorouserregiGet)
+router.get(`${GET_BYID_CORO_USER_API_PREFIX}/get-CoroUserById/api33/:id`,CorouserregiGetById)
+router.put(`${UPDATE_CORO_USER_API_PREFIX}/update-CoroUserById/api34/:id`,CorouserregiUpdate)
+router.delete(`${DELETE_CORO_USER_API_PREFIX}/delete-CoroUserById/api35/:id`,CorouserregiDelete)
 
 module.exports = router;
