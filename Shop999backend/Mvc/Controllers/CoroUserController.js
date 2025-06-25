@@ -149,8 +149,8 @@ const CorouserregiLogin = async (req, res) => {
       });
     }
 
-    // Remove sensitive fields before sending response
-    const { password: pwd, ...userWithoutPassword } = corouser._doc;
+    // ✅ Remove password field before sending response
+    const { password: pwd, confirmPassword, ...userWithoutPassword } = corouser._doc;
 
     res.status(200).send({
       success: true,
@@ -166,4 +166,5 @@ const CorouserregiLogin = async (req, res) => {
     });
   }
 };
+
 module.exports = { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,CorouserregiLogin }; 
