@@ -169,7 +169,7 @@ const coroLoginController = async (req, res) => {
             flage: "Y",
             message: "Login successful",
             token: token,
-            user: userDetails
+            user: CoroUser
 
         });
 
