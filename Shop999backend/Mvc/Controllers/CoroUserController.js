@@ -1,4 +1,5 @@
 const CoroRegiModel = require("../MongoModels/CoroRegiModel")
+const { hashPassword, comparePassword } = require("../../Helper/utils/hash");
 
 const CreateCoroUser = async (req, res) => {
     try {
@@ -120,4 +121,49 @@ const CorouserregiDelete = async (req, res) => {
         })
     }
 }
-module.exports = { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete }; 
+// LOGIN
+const CorouserregiLogin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).send({
+        success: false,
+        message: "Email and password are required",
+      });
+    }
+
+    const corouser = await CoroRegiModel.findOne({ email });
+    if (!corouser) {
+      return res.status(404).send({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    const isMatch = await comparePassword(password, corouser.password);
+    if (!isMatch) {
+      return res.status(401).send({
+        success: false,
+        message: "Incorrect credentials",
+      });
+    }
+
+    // Remove sensitive fields before sending response
+    const { password: pwd, ...userWithoutPassword } = corouser._doc;
+
+    res.status(200).send({
+      success: true,
+      message: "User login successfully",
+      data: userWithoutPassword,
+    });
+
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      message: "Error in login user",
+      data: error.message,
+    });
+  }
+};
+module.exports = { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,CorouserregiLogin }; 
