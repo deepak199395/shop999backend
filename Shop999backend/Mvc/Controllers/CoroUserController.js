@@ -168,7 +168,9 @@ const coroLoginController = async (req, res) => {
             success: true,
             flage: "Y",
             message: "Login successful",
-            token: token
+            token: token,
+            user: userDetails
+
         });
 
     } catch (error) {
