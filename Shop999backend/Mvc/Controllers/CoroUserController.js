@@ -3,9 +3,9 @@ const { hashPassword, comparePassword } = require("../../Helper/utils/hash");
 
 const CreateCoroUser = async (req, res) => {
     try {
-        const { name, email, phone, password, confirmPassword, gender, age, address } = req.body;
+        const { name, email, phone, password, gender, age, address } = req.body;
         // validation
-        if (!name || !email || !phone || !password || !confirmPassword || !gender
+        if (!name || !email || !phone || !password  || !gender
             || !age || !address) {
             return res.status(400).json({ message: "Please fill all the fields" })
         }
@@ -14,21 +14,13 @@ const CreateCoroUser = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({ message: "Email already exists" })
         }
-        const cororegi = await CoroRegiModel.create({
-            name,
-            email,
-            phone,
-            password,
-            confirmPassword,
-            gender,
-            age,
-            address
-        })
+        const hashedPassword= await hashPassword(password)
+        // create userr
+        const cororegi = await CoroRegiModel.create({name,email,phone,password:hashedPassword,gender,age,address})
         //validations
         res.status(201).send({
             flage: "Y",
             message: "User created successfully",
-
             data: cororegi
         })
     } catch (error) {
@@ -122,49 +114,6 @@ const CorouserregiDelete = async (req, res) => {
     }
 }
 // LOGIN
-const CorouserregiLogin = async (req, res) => {
-  try {
-    const { email, password } = req.body;
 
-    if (!email || !password) {
-      return res.status(400).send({
-        success: false,
-        message: "Email and password are required",
-      });
-    }
 
-    const corouser = await CoroRegiModel.findOne({ email });
-    if (!corouser) {
-      return res.status(404).send({
-        success: false,
-        message: "User not found",
-      });
-    }
-
-    const isMatch = await comparePassword(password, corouser.password);
-    if (!isMatch) {
-      return res.status(401).send({
-        success: false,
-        message: "Incorrect credentials",
-      });
-    }
-
-    // ✅ Remove password field before sending response
-    const { password: pwd, confirmPassword, ...userWithoutPassword } = corouser._doc;
-
-    res.status(200).send({
-      success: true,
-      message: "User login successfully",
-      data: userWithoutPassword,
-    });
-
-  } catch (error) {
-    res.status(500).send({
-      success: false,
-      message: "Error in login user",
-      data: error.message,
-    });
-  }
-};
-
-module.exports = { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,CorouserregiLogin }; 
+module.exports = { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete}; 

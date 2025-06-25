@@ -44,7 +44,7 @@ const GET_EXPRESS_API_PREFIX = "/api/v1/getExpress";
 const PUT_EXPENSESS_API_PRIFIX="/api/v1/putexpensess";
 const PUT_EXPENSEE_API_PRIFIX = "/api/v1/putDeallyExpess";
 const DELETE_EXPENSEE_API_PRIFIX = "/api/v1/deleteDeallyExpess";
-const LOGIN_CORO_USER="/api/v1/LogincoroUser";
+//const LOGIN_CORO_USER="/api/v1/LogincoroUser";
 // ==========================coro user ===================================
 const CREATE_CORO_USER_API_PREFIX = "/api/v1/createcoroUser";
 const GET_CORO_USER_API_PREFIX= "/api/v1/getcoroUser";
@@ -114,7 +114,7 @@ router.get(`${GET_CORO_USER_API_PREFIX}/get-CoroUser/api32`,CorouserregiGet)
 router.get(`${GET_BYID_CORO_USER_API_PREFIX}/get-CoroUserById/api33/:id`,CorouserregiGetById)
 router.put(`${UPDATE_CORO_USER_API_PREFIX}/update-CoroUserById/api34/:id`,CorouserregiUpdate)
 router.delete(`${DELETE_CORO_USER_API_PREFIX}/delete-CoroUserById/api35/:id`,CorouserregiDelete)
-router.post(`${LOGIN_CORO_USER}/login-coroUser/api36`,CorouserregiLogin)
+//router.post(`${LOGIN_CORO_USER}/login-coroUser/api36`,CorouserregiLogin)
 
 
 module.exports = router;

@@ -1,38 +1,29 @@
 const mongoose = require("mongoose");
-
 const CoroRegiModelSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
     },
     email: {
         type: String,
-        required: true
     },
     phone: {
         type: String,
-        required: true
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
     },
-    confirmPassword:{
-        type:String,
-        required:true
+     gender: {
+        type: String,
     },
-    gender:{
-        type:String,
+    age: {
+        type: Number,
     },
-    age:{
-        type:Number,
-        },
-        citizenship:{
-            type:String,
-        },
+    citizenship: {
+        type: String,
+    },
     address: {
         type: String,
         required: true
     },
-    })
-module.exports = mongoose.model("CoroRegiModel",CoroRegiModelSchema) 
+})
+module.exports = mongoose.model("CoroRegiModel", CoroRegiModelSchema) 
