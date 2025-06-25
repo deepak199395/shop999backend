@@ -23,7 +23,7 @@ const {DueLoanController, getLoandeuDetailsController, updateLoanController} = r
 const BankDetailsController = require("../Controllers/BankDetailsControllers");
 const { profileController, getProfileDetailsController } = require("../Controllers/CoroProlifeController");
 const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/expenseController");
-const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete, CorouserregiLogin, coroLoginController } = require("../Controllers/CoroUserController");
+const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,coroLoginController } = require("../Controllers/CoroUserController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
