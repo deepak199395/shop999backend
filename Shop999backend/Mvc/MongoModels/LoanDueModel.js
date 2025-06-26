@@ -4,6 +4,9 @@ const DueLoanSchema = mongoose.Schema({
     loanId: {
         type: String,
     },
+    email:{
+        type:String
+    },
     loanAmount: {
         type: String,
     },

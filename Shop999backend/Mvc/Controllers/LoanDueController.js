@@ -3,6 +3,7 @@ const DueLoanController = async (req, res) => {
     try {
         const {
             loanId,
+            email,
             loanAmount,
             loanStartDate,
             loanEndDate,
@@ -20,6 +21,7 @@ const DueLoanController = async (req, res) => {
         } = req.body
         const DueLoan = await LoanDueModel.create({
             loanId,
+            email,
             loanAmount,
             loanStartDate,
             loanEndDate,
