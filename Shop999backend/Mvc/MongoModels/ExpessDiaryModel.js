@@ -26,6 +26,9 @@ const ExpessDiarySchema = new mongoose.Schema({
     },
     limit:{
         type: Number,
+    },
+    folioNumber: {
+        type: String,
     }
 
 })

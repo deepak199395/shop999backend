@@ -2,7 +2,7 @@ const ExpessDiaryModel = require("../MongoModels/ExpessDiaryModel");
 
 const createExpessDiaryController = async (req, res) => {
     try {
-        const { name, email, phone, address, income, bank, pan, limit } = req.body;
+        const { name, email, phone, address, income, bank, pan, limit,folioNumber } = req.body;
         const newExpessDiary = await ExpessDiaryModel.create({
             name,
             email,
@@ -11,7 +11,8 @@ const createExpessDiaryController = async (req, res) => {
             income,
             bank,
             pan,
-            limit
+            limit,
+            folioNumber,
         })
         res.status(201).send({
             success: true,
