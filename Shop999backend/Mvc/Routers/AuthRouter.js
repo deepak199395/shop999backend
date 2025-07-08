@@ -24,6 +24,7 @@ const BankDetailsController = require("../Controllers/BankDetailsControllers");
 const { profileController, getProfileDetailsController } = require("../Controllers/CoroProlifeController");
 const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/expenseController");
 const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,coroLoginController } = require("../Controllers/CoroUserController");
+const { createExpessDiaryController, getExpessDiaryController } = require("../Controllers/ExpessDiaryController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
@@ -45,6 +46,8 @@ const PUT_EXPENSESS_API_PRIFIX="/api/v1/putexpensess";
 const PUT_EXPENSEE_API_PRIFIX = "/api/v1/putDeallyExpess";
 const DELETE_EXPENSEE_API_PRIFIX = "/api/v1/deleteDeallyExpess";
 const LOGIN_CORO_USER="/api/v1/LogincoroUser";
+const CREATE_EXPRESS_DIARY_API_PREFIX = "/api/v1/createExpessDiary";
+const GET_EXPRESS_DIARY_API_PREFIX = "/api/v1/getExpessDiary";
 // ==========================coro user ===================================
 const CREATE_CORO_USER_API_PREFIX = "/api/v1/createcoroUser";
 const GET_CORO_USER_API_PREFIX= "/api/v1/getcoroUser";
@@ -115,6 +118,10 @@ router.get(`${GET_BYID_CORO_USER_API_PREFIX}/get-CoroUserById/api33/:id`,Corouse
 router.put(`${UPDATE_CORO_USER_API_PREFIX}/update-CoroUserById/api34/:id`,CorouserregiUpdate)
 router.delete(`${DELETE_CORO_USER_API_PREFIX}/delete-CoroUserById/api35/:id`,CorouserregiDelete)
 router.post(`${LOGIN_CORO_USER}/login-coroUser/api36`,coroLoginController)
+
+//===========================exprensee Diray ===========================
+router.post(`${CREATE_EXPRESS_DIARY_API_PREFIX}/expess-diry/api37`,createExpessDiaryController);
+router.get(`${GET_EXPRESS_DIARY_API_PREFIX}/get-expess-diry/api38`,getExpessDiaryController);
 
 
 module.exports = router;
