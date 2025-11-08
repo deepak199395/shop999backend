@@ -1,5 +1,5 @@
-const CoroRegiModel = require("../MongoModels/CoroRegiModel")
-const { hashPassword, comparePassword } = require("../../Helper/utils/hash");
+const CoroRegiModel = require("../../MongoModels/CoroRegiModel")
+const { hashPassword, comparePassword } = require("../../../Helper/utils/hash");
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET || "myVerySecretKey123";
 const CreateCoroUser = async (req, res) => {

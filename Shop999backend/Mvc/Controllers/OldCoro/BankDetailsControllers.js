@@ -1,4 +1,4 @@
-const Bankmodel= require("../MongoModels/RealCodeModel")
+const Bankmodel= require("../../MongoModels/RealCodeModel")
 const BankDetailsController = async (req, res) => {
   try {
     const { accnum,acctype,number,email,emailadd} = req.body;

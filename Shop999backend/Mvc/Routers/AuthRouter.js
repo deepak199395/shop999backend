@@ -8,25 +8,25 @@ const {
   LoginController, 
   updateUserController, 
   deleteController 
-} = require("../Controllers/AuthController");
+} = require("../Controllers/OldCoro/AuthController");
 
-const { createProject, getProductsDetails } = require("../Controllers/ProductController");
-const { CreateTickets, getTicketInfo } = require("../Controllers/IplTicketsController");
-const { createBooking, getBookingControllers } = require("../Controllers/BookingController");
-const { createExperience, getExperienceController } = require("../Controllers/ExpeianceControlller");
-const { createStackController, getStackController } = require("../Controllers/StackController");
-const { createProjectController, getProjectController } = require("../Controllers/ProjectController");
-const { CreateMovieController, getMovieDetailsController } = require("../Controllers/MovieController");
-const { CreateLiveController, getLiveshowController } = require("../Controllers/LiveshowController");
+const { createProject, getProductsDetails } = require("../Controllers/OldCoro/ProductController");
+const { CreateTickets, getTicketInfo } = require("../Controllers/OldCoro/IplTicketsController");
+const { createBooking, getBookingControllers } = require("../Controllers/OldCoro/BookingController");
+const { createExperience, getExperienceController } = require("../Controllers/OldCoro/ExpeianceControlller");
+const { createStackController, getStackController } = require("../Controllers/OldCoro/StackController");
+const { createProjectController, getProjectController } = require("../Controllers/OldCoro/ProjectController");
+const { CreateMovieController, getMovieDetailsController } = require("../Controllers/OldCoro/MovieController");
+const { CreateLiveController, getLiveshowController } = require("../Controllers/OldCoro/LiveshowController");
 const { requireSignIn } = require("../../MiddleWere/authMiddleware");
-const {DueLoanController, getLoandeuDetailsController, updateLoanController} = require("../Controllers/LoanDueController");
-const BankDetailsController = require("../Controllers/BankDetailsControllers");
-const { profileController, getProfileDetailsController } = require("../Controllers/CoroProlifeController");
-const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/expenseController");
-const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,coroLoginController } = require("../Controllers/CoroUserController");
-const { createExpessDiaryController, getExpessDiaryController } = require("../Controllers/ExpessDiaryController");
-const { CreateRegiUserController, FoxloginController } = require("../Controllers/CoroAuthController");
-const { getEMIdetailsController, Emicontroller } = require("../Controllers/FoxEmiController");
+const {DueLoanController, getLoandeuDetailsController, updateLoanController} = require("../Controllers/OldCoro/LoanDueController");
+const BankDetailsController = require("../Controllers/OldCoro/BankDetailsControllers");
+const { profileController, getProfileDetailsController } = require("../Controllers/OldCoro/CoroProlifeController");
+const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/OldCoro/expenseController");
+const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,coroLoginController } = require("../Controllers/OldCoro/CoroUserController");
+const { createExpessDiaryController, getExpessDiaryController } = require("../Controllers/OldCoro/ExpessDiaryController");
+const { getEMIdetailsController, Emicontroller } = require("../Controllers/Fox/FoxEmiController");
+const { CreateRegiUserController, FoxloginController } = require("../Controllers/Fox/CoroAuthController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";

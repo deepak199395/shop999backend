@@ -1,5 +1,5 @@
-const { hashPassword, comparePassword } = require("../../Helper/utils/hash");
-const userModel = require("../MongoModels/UserSchem");
+const { hashPassword, comparePassword } = require("../../../Helper/utils/hash");
+const userModel = require("../../MongoModels/UserSchem");
 const jwt = require('jsonwebtoken');
 const JWT_SECRET=process.env.JWT_SECRET || "myVerySecretKey123";
 

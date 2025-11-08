@@ -1,4 +1,4 @@
-const StackModel= require("../MongoModels/StackModel")
+const StackModel= require("../../MongoModels/StackModel")
 
 const createStackController=async(req,res)=>{
    try {

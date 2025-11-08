@@ -1,4 +1,4 @@
-const ExpessDiaryModel = require("../MongoModels/ExpessDiaryModel");
+const ExpessDiaryModel = require("../../MongoModels/ExpessDiaryModel");
 
 const createExpessDiaryController = async (req, res) => {
     try {

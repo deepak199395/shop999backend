@@ -1,4 +1,4 @@
-const LiveshowModel = require("../MongoModels/LiveshowsModel");
+const LiveshowModel = require("../../MongoModels/LiveshowsModel");
 
 const CreateLiveController = async (req, res) => {
   try {

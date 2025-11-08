@@ -1,17 +1,17 @@
-const { hashPassword, comparePassword } = require('../../Helper/utils/hash');
-const userModel = require('../MongoModels/CoroAuthRegisterModel');
+const { hashPassword, comparePassword } = require('../../../Helper/utils/hash');
+const userModel = require('../../MongoModels/CoroAuthRegisterModel');
 
 const CreateRegiUserController = async (req, res) => {
   try {
     const { fullName, email, phone, password, country, city, pincode, profilePhoto, role } = req.body;
 
-    // Validation
-    if (!fullName || !email || !phone || !password || !country || !city || !pincode || !profilePhoto || !role) {
-      return res.status(400).json({
-        success: false,
-        message: "Please fill all the fields",
-      });
-    }
+    // // Validation
+    // if (!fullName || !email || !phone || !password || !country || !city || !pincode || !profilePhoto || !role) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: "Please fill all the fields",
+    //   });
+    // }
 
     // Check for existing user
     const existingUser = await userModel.findOne({ email });

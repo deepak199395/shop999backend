@@ -1,4 +1,4 @@
-const ExpessModel = require("../MongoModels/CoroexpenseModel")
+const ExpessModel = require("../../MongoModels/CoroexpenseModel")
 
 const CreateExpessController = async (req, res) => {
   try {
