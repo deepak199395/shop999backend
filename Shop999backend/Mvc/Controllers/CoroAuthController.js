@@ -1,3 +1,4 @@
+const { hashPassword, comparePassword } = require('../../Helper/utils/hash');
 const userModel = require('../MongoModels/CoroAuthRegisterModel');
 
 const CreateRegiUserController = async (req, res) => {
@@ -20,13 +21,14 @@ const CreateRegiUserController = async (req, res) => {
         message: "User already exists, please login",
       });
     }
+        const hashedPassword = await hashPassword(password)
 
     // Create new user
     const user = await userModel.create({
       fullName,
       email,
       phone,
-      password,
+      password:hashedPassword,
       country,
       city,
       pincode,
@@ -50,4 +52,42 @@ const CreateRegiUserController = async (req, res) => {
   }
 };
 
-module.exports = { CreateRegiUserController };
+const FoxloginController=async(req,res)=>{
+  try {
+    const {email,password}=req.body
+    if(!email || ! password){
+     return res.status(400).send({
+        status :false,
+        massage:"email and paddword required"
+     })
+    }
+    // find user 
+    const user = await userModel.findOne({email:email})
+    if(!user){
+     return res.status(201).send({
+        status:false,
+        massage:"invalid Creadition"
+      })
+    }
+    const isMatch = await comparePassword(password,user.password)
+    if(!isMatch){
+      return res.status(201).send({
+        status:false,
+        massage:"invalid credential"
+      })
+    }
+    res.status(200).send({
+      status:true,
+      massage:"User login succssfully"
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      status:false,
+      massage:"error in api you need cheack in code and servers",
+      error
+    })
+    
+  }
+}
+module.exports = { CreateRegiUserController,FoxloginController };
