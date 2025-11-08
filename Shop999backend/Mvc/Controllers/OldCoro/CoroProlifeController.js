@@ -1,4 +1,4 @@
-const Profilemodel= require("../../MongoModels/CoroPfofileModel")
+const Profilemodel= require("../../MongoModels/Old/CoroPfofileModel")
 
 const profileController=async(req,res)=>{
     try {

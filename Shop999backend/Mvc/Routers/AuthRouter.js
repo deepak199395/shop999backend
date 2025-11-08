@@ -25,8 +25,8 @@ const { profileController, getProfileDetailsController } = require("../Controlle
 const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/OldCoro/expenseController");
 const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,coroLoginController } = require("../Controllers/OldCoro/CoroUserController");
 const { createExpessDiaryController, getExpessDiaryController } = require("../Controllers/OldCoro/ExpessDiaryController");
-const { getEMIdetailsController, Emicontroller } = require("../Controllers/Fox/FoxEmiController");
-const { CreateRegiUserController, FoxloginController } = require("../Controllers/Fox/CoroAuthController");
+const { getEMIdetailsController, Emicontroller } = require("../Controllers/FoxWebController/FoxEmiController");
+const { CreateRegiUserController, FoxloginController } = require("../Controllers/FoxWebController/CoroAuthController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";

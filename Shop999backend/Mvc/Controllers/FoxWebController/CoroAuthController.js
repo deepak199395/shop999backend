@@ -1,5 +1,5 @@
 const { hashPassword, comparePassword } = require('../../../Helper/utils/hash');
-const userModel = require('../../MongoModels/CoroAuthRegisterModel');
+const userModel = require('../../MongoModels/foxWeb/CoroAuthRegisterModel');
 
 const CreateRegiUserController = async (req, res) => {
   try {

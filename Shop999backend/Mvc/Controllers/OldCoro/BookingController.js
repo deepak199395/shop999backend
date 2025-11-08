@@ -1,4 +1,4 @@
-const BookingTicket = require('../../MongoModels/BookingModel')
+const BookingTicket = require('../../MongoModels/Old/BookingModel')
 const createBooking = async (req, res) => {
     try {
         const { fullname,PhoneNumber,Adress,NumberofTickets} = req.body;

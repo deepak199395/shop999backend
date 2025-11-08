@@ -1,4 +1,4 @@
-const MovieTickets = require("../../MongoModels/MovieModel");
+const MovieTickets = require("../../MongoModels/Old/MovieModel");
 
 const CreateMovieController = async (req, res) => {
     try {

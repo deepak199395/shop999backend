@@ -1,4 +1,4 @@
-const CoroRegiModel = require("../../MongoModels/CoroRegiModel")
+const CoroRegiModel = require("../../MongoModels/Old/CoroRegiModel")
 const { hashPassword, comparePassword } = require("../../../Helper/utils/hash");
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET || "myVerySecretKey123";

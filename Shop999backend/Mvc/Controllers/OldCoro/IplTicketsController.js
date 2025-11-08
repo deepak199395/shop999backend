@@ -1,4 +1,4 @@
-const matchTicket = require("../../MongoModels/IplModel")
+const matchTicket = require("../../MongoModels/Old/IplModel")
 const CreateTickets = async (req, res) => {
     try {
         const { matchId,

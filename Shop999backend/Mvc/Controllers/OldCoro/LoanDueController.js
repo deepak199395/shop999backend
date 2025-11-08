@@ -1,4 +1,4 @@
-const LoanDueModel = require("../../MongoModels/LoanDueModel")
+const LoanDueModel = require("../../MongoModels/Old/LoanDueModel")
 const DueLoanController = async (req, res) => {
     try {
         const {

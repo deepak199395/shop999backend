@@ -1,4 +1,4 @@
-const ProjectModel= require("../../MongoModels/Projects")
+const ProjectModel= require("../../MongoModels/Old/Projects")
 
 const createProjectController=async(req,res)=>{
     const {projectName,projectDescription,projectDuration,projectTechStack, projectImage,

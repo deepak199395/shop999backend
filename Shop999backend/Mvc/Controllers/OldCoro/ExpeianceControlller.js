@@ -1,4 +1,4 @@
-const experienceModel = require('../../MongoModels/ExperinceModel'); 
+const experienceModel = require('../../MongoModels/Old/ExperinceModel'); 
 
 // Create Experience
 const createExperience = async (req, res) => {

@@ -1,4 +1,4 @@
-const EmiModel = require("../../MongoModels/FoxCreateEmiModel");
+const EmiModel = require("../../MongoModels/foxWeb/FoxCreateEmiModel");
 // ===============================================
 // Create EMI Controller
 // ===============================================
