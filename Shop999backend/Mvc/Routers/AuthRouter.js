@@ -26,6 +26,7 @@ const { CreateExpessController, getExpessController, updateExpenssController, De
 const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,coroLoginController } = require("../Controllers/CoroUserController");
 const { createExpessDiaryController, getExpessDiaryController } = require("../Controllers/ExpessDiaryController");
 const { CreateRegiUserController, FoxloginController } = require("../Controllers/CoroAuthController");
+const { getEMIdetailsController } = require("../Controllers/FoxEmiController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
@@ -132,7 +133,7 @@ router.get(`${GET_EXPRESS_DIARY_API_PREFIX}/get-expess-diry/api38`,getExpessDiar
 router.post(`${AUTH_USER_REGISTER}/create-coro/api39`,CreateRegiUserController)
 router.post (`${AUTH_USER_LOGIN}/foxuser-corologin/api40`,FoxloginController)
 //===>EMI===>
-router.post(`${AUTH_EMI_DATABASE}/FOX-EMI/api41`)
+router.post(`${AUTH_EMI_DATABASE}/FOX-EMI/api41`,getEMIdetailsController)
 
 
 
