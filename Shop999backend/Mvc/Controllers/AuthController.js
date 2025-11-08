@@ -35,8 +35,7 @@ const createUserController = async (req, res) => {
             success: false,
             message: "Error creating user",
             error
-
-        })
+       })
     }
 }
 // post userController
