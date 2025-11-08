@@ -50,7 +50,8 @@ const LOGIN_CORO_USER="/api/v1/LogincoroUser";
 const CREATE_EXPRESS_DIARY_API_PREFIX = "/api/v1/createExpessDiary";
 const GET_EXPRESS_DIARY_API_PREFIX = "/api/v1/getExpessDiary";
 const AUTH_USER_REGISTER="/api/vi/coroCreateUser";
-const AUTH_USER_LOGIN = "/api/v1/foxuserLogin"
+const AUTH_USER_LOGIN = "/api/v1/foxuserLogin";
+const AUTH_EMI_DATABASE= "/api/v1/foxEMI"
 // ==========================coro user ===================================
 const CREATE_CORO_USER_API_PREFIX = "/api/v1/createcoroUser";
 const GET_CORO_USER_API_PREFIX= "/api/v1/getcoroUser";
@@ -127,6 +128,12 @@ router.post(`${CREATE_EXPRESS_DIARY_API_PREFIX}/expess-diry/api37`,createExpessD
 router.get(`${GET_EXPRESS_DIARY_API_PREFIX}/get-expess-diry/api38`,getExpessDiaryController);
 
 //=============================coro website ============================//
+//===AUTH===>
 router.post(`${AUTH_USER_REGISTER}/create-coro/api39`,CreateRegiUserController)
 router.post (`${AUTH_USER_LOGIN}/foxuser-corologin/api40`,FoxloginController)
+//===>EMI===>
+router.post(`${AUTH_EMI_DATABASE}/FOX-EMI/api41`)
+
+
+
 module.exports = router;
