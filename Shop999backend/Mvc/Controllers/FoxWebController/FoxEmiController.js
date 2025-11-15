@@ -32,13 +32,13 @@ const Emicontroller = async (req, res) => {
     } = req.body;
 
     // Basic validation
-    if (!customerName || !FinanceCompany || !loanAmount || !rateOfInterestPerAnnum || !loanTenureInMonths || !RemainloanTenureInMonths) {
-      return res.status(400).json({
-        status: false,
-        message: "Please provide required fields: customerName, loanAmount, rateOfInterestPerAnnum, and loanTenureInMonths.",
-        flag: "red",
-      });
-    }
+    // if (!customerName || !FinanceCompany || !loanAmount || !rateOfInterestPerAnnum || !loanTenureInMonths || !RemainloanTenureInMonths) {
+    //   return res.status(400).json({
+    //     status: false,
+    //     message: "Please provide required fields: customerName, loanAmount, rateOfInterestPerAnnum, and loanTenureInMonths.",
+    //     flag: "red",
+    //   });
+    // }
     // Create EMI record
     const emi = await EmiModel.create({
       customerId,
