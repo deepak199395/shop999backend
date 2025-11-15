@@ -51,6 +51,10 @@ const foxCreateEmiSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Loan tenure (in months) is required"],
   },
+  RemainloanTenureInMonths: {
+    type: Number,
+    required: [true, "Loan tenure (in months) is required"],
+  },
   totalLoanAmountRepaid: {
     type: Number,
     default: 0,
