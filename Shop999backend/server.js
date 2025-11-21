@@ -20,7 +20,8 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:3000",
   "https://shop999.vercel.app",
-  "https://coro-app.netlify.app" // ✅ Added your frontend domain here
+  "https://coro-app.netlify.app",
+   "https://coroemiassistant.netlify.app"  
 ];
 
 // ✅ Enhanced CORS Setup
