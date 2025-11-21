@@ -28,6 +28,7 @@ const { createExpessDiaryController, getExpessDiaryController } = require("../Co
 const { getEMIdetailsController, Emicontroller } = require("../Controllers/FoxWebController/FoxEmiController");
 const { CreateRegiUserController, FoxloginController } = require("../Controllers/FoxWebController/CoroAuthController");
 const { ExpenseController, getExpensseController } = require("../Controllers/FoxWebController/ExpensesController");
+const { DeleteMoodController } = require("../Controllers/RuhiController/AiAwairnesController");
 
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
@@ -56,7 +57,8 @@ const AUTH_USER_LOGIN = "/api/v1/foxuserLogin";
 const AUTH_EMI_DATABASE= "/api/v1/foxEMI";
 const AUTH_EMI_GET_DETAILS="/api/v1/foremi-details";
 const DAILT_EXPENSE_DETAILS="/api/v1/expensse-deails";
-const GET_DAILY_EXPENSE= "/api/v1/expess-deatils"
+const GET_DAILY_EXPENSE= "/api/v1/expess-deatils";
+const DEL_MOOD_RUHI="/api/v1/ai/mood-detect"
 // ==========================coro user ===================================
 const CREATE_CORO_USER_API_PREFIX = "/api/v1/createcoroUser";
 const GET_CORO_USER_API_PREFIX= "/api/v1/getcoroUser";
@@ -143,4 +145,7 @@ router.get(`${AUTH_EMI_GET_DETAILS}/FOX-EMI/api42`,getEMIdetailsController)
 //===DailyExpense===>
 router.post(`${DAILT_EXPENSE_DETAILS}/fox-expenses/api43`,ExpenseController)
 router.get(`${GET_DAILY_EXPENSE}/fox-getExpensse/api44`,getExpensseController)
+
+// === RUHI API===>
+router.post(`${DEL_MOOD_RUHI}/deleteMood-AI-MOOD-DETECTION/api45`,DeleteMoodController)
 module.exports = router;
