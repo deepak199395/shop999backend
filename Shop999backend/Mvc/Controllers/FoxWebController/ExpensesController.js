@@ -47,15 +47,6 @@ const UpdateExpenssController = async (req, res) => {
   try {
     const { id } = req.params;
     const { expenses, reasonOfExpenses, dateOfExpenses } = req.body;
-
-    // Validate input
-    if (!expenses || !reasonOfExpenses || !dateOfExpenses) {
-      return res.status(400).send({
-        success: false,
-        message: "All fields (expenses, reasonOfExpenses, dateOfExpenses) are required.",
-      });
-    }
-
     const updatedExpense = await DailyExpensesModel.findByIdAndUpdate(
       id,
       { expenses, reasonOfExpenses, dateOfExpenses },
