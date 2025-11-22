@@ -27,7 +27,7 @@ const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate
 const { createExpessDiaryController, getExpessDiaryController } = require("../Controllers/OldCoro/ExpessDiaryController");
 const { getEMIdetailsController, Emicontroller } = require("../Controllers/FoxWebController/FoxEmiController");
 const { CreateRegiUserController, FoxloginController } = require("../Controllers/FoxWebController/CoroAuthController");
-const { ExpenseController, getExpensseController, UpdateExpenssController } = require("../Controllers/FoxWebController/ExpensesController");
+const { ExpenseController, getExpensseController, UpdateExpenssController, DeleteExpensesController } = require("../Controllers/FoxWebController/ExpensesController");
 const { DeleteMoodController } = require("../Controllers/RuhiController/AiAwairnesController");
 
 // API Prefixes
@@ -58,8 +58,9 @@ const AUTH_EMI_DATABASE= "/api/v1/foxEMI";
 const AUTH_EMI_GET_DETAILS="/api/v1/foremi-details";
 const DAILT_EXPENSE_DETAILS="/api/v1/expensse-deails";
 const GET_DAILY_EXPENSE= "/api/v1/expess-deatils";
-const DEL_MOOD_RUHI="/api/v1/ai/mood-detect"
-const UPDATE_DAILY_EXPENSES="/api/v1/update-daily-apenses"
+const DEL_MOOD_RUHI="/api/v1/ai/mood-detect";
+const UPDATE_DAILY_EXPENSES="/api/v1/update-daily-apenses";
+const DELETE_DAILY_EXPENSES= "/api/v1/delete-daily-expense"
 // ==========================coro user ===================================
 const CREATE_CORO_USER_API_PREFIX = "/api/v1/createcoroUser";
 const GET_CORO_USER_API_PREFIX= "/api/v1/getcoroUser";
@@ -147,6 +148,7 @@ router.get(`${AUTH_EMI_GET_DETAILS}/FOX-EMI/api42`,getEMIdetailsController)
 router.post(`${DAILT_EXPENSE_DETAILS}/fox-expenses/api43`,ExpenseController)
 router.get(`${GET_DAILY_EXPENSE}/fox-getExpensse/api44`,getExpensseController)
 router.post(`${UPDATE_DAILY_EXPENSES}/daily-exp-privete-api/api46/:id`,UpdateExpenssController)
+router.post(`${DELETE_DAILY_EXPENSES}/daily-exp-privete-api/api47/:id`,DeleteExpensesController)
 // === RUHI API===>
 router.post(`${DEL_MOOD_RUHI}/deleteMood-AI-MOOD-DETECTION/api45`,DeleteMoodController)
 module.exports = router;

@@ -78,11 +78,39 @@ const UpdateExpenssController = async (req, res) => {
   }
 };
 
-const DeleteExpensesController = () => {
+const DeleteExpensesController = async (req, res) => {
   try {
+    const { id } = req.params;
+
+    // Attempt to delete expense
+    const deletedExpense = await DailyExpensesModel.findByIdAndDelete(id);
+
+    // If not found
+    if (!deletedExpense) {
+      return res.status(404).send({
+        success: false,
+        message: "Expense not found.",
+        flag: "red"
+      });
+    }
+
+    // Success
+    return res.status(200).send({
+      success: true,
+      message: "Expense deleted successfully.",
+      flag: "green",
+      data: deletedExpense
+    });
 
   } catch (error) {
+    console.error("Error deleting expense:", error);
 
+    return res.status(500).send({
+      success: false,
+      message: "Server error while deleting expense.",
+      error: error.message
+    });
   }
-}
-module.exports = { ExpenseController, getExpensseController, UpdateExpenssController };
+};
+
+module.exports = { ExpenseController, getExpensseController, UpdateExpenssController ,DeleteExpensesController};
