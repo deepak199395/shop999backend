@@ -49,5 +49,27 @@ const CreatNewPinController = async (req, res) => {
     });
   }
 };
+const getPinController = async (req, res) => {
+  try {
+    const pins = await PinModel.find();
 
-module.exports = { CreatNewPinController };
+    return res.status(200).send({
+      success: true,
+      flag: "green",
+      message: "PIN details fetched successfully.",
+      data: pins
+    });
+
+  } catch (error) {
+    console.error("Error while fetching PIN details:", error);
+
+    return res.status(500).send({
+      success: false,
+      flag: "red",
+      message: "Error fetching PIN details.",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { CreatNewPinController ,getPinController};
