@@ -29,7 +29,7 @@ const { getEMIdetailsController, Emicontroller } = require("../Controllers/FoxWe
 const { CreateRegiUserController, FoxloginController } = require("../Controllers/FoxWebController/CoroAuthController");
 const { ExpenseController, getExpensseController, UpdateExpenssController, DeleteExpensesController } = require("../Controllers/FoxWebController/ExpensesController");
 const { DeleteMoodController } = require("../Controllers/RuhiController/AiAwairnesController");
-
+const {CreatNewPinController}= require("../Controllers/FoxWebController/PinController")
 // API Prefixes
 const AUTH_API_PREFIX = "/api/v1/auth";
 const PRODUCT_API_PREFIX = "/api/v1/products";
@@ -60,7 +60,8 @@ const DAILT_EXPENSE_DETAILS="/api/v1/expensse-deails";
 const GET_DAILY_EXPENSE= "/api/v1/expess-deatils";
 const DEL_MOOD_RUHI="/api/v1/ai/mood-detect";
 const UPDATE_DAILY_EXPENSES="/api/v1/update-daily-apenses";
-const DELETE_DAILY_EXPENSES= "/api/v1/delete-daily-expense"
+const DELETE_DAILY_EXPENSES= "/api/v1/delete-daily-expense";
+const CORO_CREATEPIN="/api/v1/create-new-pin";
 // ==========================coro user ===================================
 const CREATE_CORO_USER_API_PREFIX = "/api/v1/createcoroUser";
 const GET_CORO_USER_API_PREFIX= "/api/v1/getcoroUser";
@@ -151,4 +152,7 @@ router.post(`${UPDATE_DAILY_EXPENSES}/daily-exp-privete-api/api46/:id`,UpdateExp
 router.post(`${DELETE_DAILY_EXPENSES}/daily-exp-privete-api/api47/:id`,DeleteExpensesController)
 // === RUHI API===>
 router.post(`${DEL_MOOD_RUHI}/deleteMood-AI-MOOD-DETECTION/api45`,DeleteMoodController)
+// == pin==== >
+router.post(`${CORO_CREATEPIN}/create/create-pin/api48`,CreatNewPinController)
+
 module.exports = router;
