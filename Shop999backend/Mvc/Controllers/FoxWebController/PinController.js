@@ -35,7 +35,6 @@ const CreatNewPinController = async (req, res) => {
 
     const newpin = await PinModel.create({
       regiEmailId,
-      pinHash: hashedPin, // store ONLY hashed pin
     });
 
     return res.status(200).send({
