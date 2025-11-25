@@ -30,18 +30,14 @@ const CreatNewPinController = async (req, res) => {
         message: "PIN must be at least 4 digits.",
       });
     }
-
-    // Hash PIN before storing
-
     const newpin = await PinModel.create({
-      regiEmailId,
+      regiEmailId,EnterPin,
     });
-
     return res.status(200).send({
       success: true,
       flag: "green",
       message: "Your PIN has been created successfully.",
-      data: newpin,
+       newpin,
     });
 
   } catch (error) {
