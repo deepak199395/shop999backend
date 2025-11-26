@@ -157,5 +157,5 @@ router.post(`${DEL_MOOD_RUHI}/deleteMood-AI-MOOD-DETECTION/api45`,DeleteMoodCont
 // == pin==== >
 router.post(`${CORO_CREATEPIN}/create/create-pin/api48`,CreatNewPinController)
 router.get(`${COR0_GETPIN}/create/get-pin/api49`,getPinController)
-router.get(`${CORO_VERIFY_PIN}/verify/exixtingPin/api50`,VerifyPinController)
+router.post(`${CORO_VERIFY_PIN}/verify/exixtingPin/api50`,VerifyPinController)
 module.exports = router;
