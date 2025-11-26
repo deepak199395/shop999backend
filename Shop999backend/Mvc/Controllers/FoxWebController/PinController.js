@@ -72,4 +72,54 @@ const getPinController = async (req, res) => {
   }
 };
 
-module.exports = { CreatNewPinController ,getPinController};
+const VerifyPinController = async (req, res) => {
+  try {
+    const { regiEmailId, EnterPin } = req.body;
+
+    if (!regiEmailId || !EnterPin) {
+      return res.status(400).send({
+        success: false,
+        flag: "red",
+        message: "Email and PIN are required.",
+      });
+    }
+
+    const userPin = await PinModel.findOne({ regiEmailId });
+
+    if (!userPin) {
+      return res.status(404).send({
+        success: false,
+        flag: "red",
+        message: "No PIN found for this email.",
+      });
+    }
+
+    // Direct PIN comparison (NO bcrypt)
+    if (userPin.EnterPin !== EnterPin) {
+      return res.status(401).send({
+        success: false,
+        flag: "red",
+        message: "Incorrect PIN.",
+      });
+    }
+
+    // SUCCESS
+    return res.status(200).send({
+      success: true,
+      flag: "green",
+      message: "PIN Verified Successfully.",
+    });
+
+  } catch (error) {
+    console.error("Error verifying PIN:", error);
+    return res.status(500).send({
+      success: false,
+      flag: "red",
+      message: "Server error while verifying PIN.",
+      error: error.message,
+    });
+  }
+};
+
+
+module.exports = { CreatNewPinController ,getPinController,VerifyPinController};
