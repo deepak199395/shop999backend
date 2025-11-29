@@ -21,9 +21,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "https://shop999.vercel.app",
   "https://coro-app.netlify.app",
-   "https://coroemiassistant.netlify.app",
    "https://coroemi.netlify.app"
-  
 ];
 
 // ✅ Enhanced CORS Setup

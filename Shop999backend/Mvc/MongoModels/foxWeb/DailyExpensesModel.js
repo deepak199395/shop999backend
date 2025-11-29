@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 const DailyExpensesSchema = new mongoose.Schema(
   {
+    regiEmailId: {
+      type: String,
+      required: true,
+      trim: true
+    },
     expenses: {
       type: String,
       required: true,

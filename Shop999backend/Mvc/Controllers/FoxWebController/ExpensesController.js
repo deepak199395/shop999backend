@@ -3,12 +3,13 @@ const { getExperienceController } = require("../OldCoro/ExpeianceControlller");
 
 const ExpenseController = async (req, res) => {
   try {
-    const { expenses, reasonOfExpenses, dateOfExpenses } = req.body;
+    const {regiEmailId,expenses, reasonOfExpenses, dateOfExpenses} = req.body;
 
     const expense = await DailyExpensesModel.create({
+      regiEmailId,
       expenses,
       reasonOfExpenses,
-      dateOfExpenses
+      dateOfExpenses,
     });
 
     res.status(200).send({
