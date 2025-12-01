@@ -1,8 +1,4 @@
-// ================= CLEAN + COMPLETE ROUTER FILE =================
-
 const express = require("express");
-
-
 const {DueLoanController, getLoandeuDetailsController, updateLoanController} = require("../Controllers/OldCoro/LoanDueController");
 const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/OldCoro/expenseController");
 const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,coroLoginController } = require("../Controllers/OldCoro/CoroUserController");
@@ -14,9 +10,7 @@ const { DeleteMoodController } = require("../Controllers/RuhiController/AiAwairn
 const {CreatNewPinController, getPinController, VerifyPinController}= require("../Controllers/FoxWebController/PinController")
 const router = express.Router();
 
-/* Controllers imports unchanged here... */
 
-/* -------------------- REMOVE PREFIX -------------------- */
 const API = "";   // IMPORTANT FIX
 
 /* -------------------- AUTH -------------------- */
