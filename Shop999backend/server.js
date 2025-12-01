@@ -1,3 +1,5 @@
+// ================= CLEAN & SAFE SERVER FILE =================
+
 const express = require("express");
 const colors = require("colors");
 const cors = require("cors");
@@ -16,22 +18,26 @@ connectDb();
 
 const app = express();
 
-// ✅ Allowed Origins
+/* ---------------------------------------------------
+   ✔ ALLOWED ORIGINS (SAFE)
+------------------------------------------------------ */
 const allowedOrigins = [
   "http://localhost:3000",
   "https://shop999.vercel.app",
   "https://coro-app.netlify.app",
-   "https://coroemi.netlify.app"
+  "https://coroemi.netlify.app"
 ];
 
-// ✅ Enhanced CORS Setup
+/* ---------------------------------------------------
+   ✔ CORS SETUP (SAFE)
+------------------------------------------------------ */
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        console.log("❌ CORS blocked for origin:", origin);
+        console.log("❌ BLOCKED ORIGIN:", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
@@ -41,39 +47,50 @@ app.use(
   })
 );
 
-// ✅ Ensure preflight (OPTIONS) requests are handled
+// Handle OPTIONS
 app.options("*", cors());
 
-// Middleware
+/* ---------------------------------------------------
+   ✔ MIDDLEWARE
+------------------------------------------------------ */
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "supersecretkey",
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === "production", // ✅ Secure only in production
+      secure: process.env.NODE_ENV === "production",
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24, // 24 hours
     },
   })
 );
 
-// ✅ Test Route
+/* ---------------------------------------------------
+   ✔ HEALTH CHECK ROUTE
+------------------------------------------------------ */
 app.get("/", (req, res) => {
-  res.send("✅ Hello from Shop@99 backend on Vercel — CORS enabled!");
+  res.send("✅ CORO Backend API is running safely!");
 });
 
-// ✅ API Routes
-app.use("/back-end/rest-API/Secure", require("./Mvc/Routers/AuthRouter"));
-app.use("/back-end/rest-API/Secure", sessionRoutes);
+/* ---------------------------------------------------
+   ✔ CLEAN API MOUNT POINT
+   ❗ REPLACES: /back-end/rest-API/Secure
+------------------------------------------------------ */
+app.use("/api/v1", require("./Mvc/Routers/AuthRouter"));   // <– NEW CLEAN PREFIX
+app.use("/api/v1", sessionRoutes);
 
-// ✅ Server Port (for local run)
+/* ---------------------------------------------------
+   ✔ START SERVER
+------------------------------------------------------ */
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`.bgBlue);
+  console.log(`✅ Safe Backend Server running on port ${PORT}`.bgBlue);
 });
 
 module.exports = app;
