@@ -9,8 +9,6 @@ const { ExpenseController, getExpensseController, UpdateExpenssController, Delet
 const { DeleteMoodController } = require("../Controllers/RuhiController/AiAwairnesController");
 const {CreatNewPinController, getPinController, VerifyPinController}= require("../Controllers/FoxWebController/PinController")
 const router = express.Router();
-
-
 const API = "";   // IMPORTANT FIX
 
 /* -------------------- AUTH -------------------- */
