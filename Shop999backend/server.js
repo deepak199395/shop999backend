@@ -26,7 +26,8 @@ const allowedOrigins = [
   "https://shop999.vercel.app",
   "https://coro-app.netlify.app",
   "https://coroemi.netlify.app",
-  "https://coroemiassist.netlify.app"
+  "https://coroemiassist.netlify.app",
+  "https://shrigaar.netlify.app/"
 ];
 
 /* ---------------------------------------------------
