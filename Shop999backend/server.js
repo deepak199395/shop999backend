@@ -1,5 +1,4 @@
 // ================= CLEAN & SAFE SERVER FILE =================
-
 const express = require("express");
 const colors = require("colors");
 const cors = require("cors");
@@ -17,7 +16,6 @@ dotenv.config();
 connectDb();
 
 const app = express();
-
 /* ---------------------------------------------------
    ✔ ALLOWED ORIGINS (SAFE)
 ------------------------------------------------------ */
@@ -29,7 +27,6 @@ const allowedOrigins = [
   "https://coroemiassist.netlify.app",
   "https://shrigaar.netlify.app" 
 ];
-
 /* ---------------------------------------------------
    ✔ CORS SETUP (SAFE)
 ------------------------------------------------------ */
@@ -48,7 +45,6 @@ app.use(
     credentials: true,
   })
 );
-
 // Handle OPTIONS
 app.options("*", cors());
 
@@ -96,3 +92,4 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+//npm run server  
