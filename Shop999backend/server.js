@@ -27,7 +27,7 @@ const allowedOrigins = [
   "https://coro-app.netlify.app",
   "https://coroemi.netlify.app",
   "https://coroemiassist.netlify.app",
-  "https://shrigaar.netlify.app/"
+  "https://shrigaar.netlify.app" 
 ];
 
 /* ---------------------------------------------------
