@@ -21,11 +21,9 @@ const app = express();
 ------------------------------------------------------ */
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://shop999.vercel.app",
-  "https://coro-app.netlify.app",
-  "https://coroemi.netlify.app",
-  "https://coroemiassist.netlify.app",
-  "https://www.shrigaar.com" 
+  "https://shrigaar.com",
+  "https://www.shrigaar.com",
+  "https://coro-app.netlify.app" 
 ];
 /* ---------------------------------------------------
    ✔ CORS SETUP (SAFE)
