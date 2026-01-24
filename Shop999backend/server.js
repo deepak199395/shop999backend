@@ -82,7 +82,7 @@ app.get("/", (req, res) => {
    ✔ CLEAN API MOUNT POINT
    ❗ REPLACES: /back-end/rest-API/Secure
 ------------------------------------------------------ */
-app.use("/api/v1", require("./Mvc/Routers/AuthRouter"));   // <– NEW CLEAN PREFIX
+app.use("/api/v1", require("./Mvc/Routers/AuthRouter")); 
 app.use("/api/v1", sessionRoutes);
 
 /* ---------------------------------------------------

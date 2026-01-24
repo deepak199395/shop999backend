@@ -7,9 +7,10 @@ const { getEMIdetailsController, Emicontroller } = require("../Controllers/FoxWe
 const { CreateRegiUserController, FoxloginController } = require("../Controllers/FoxWebController/CoroAuthController");
 const { ExpenseController, getExpensseController, UpdateExpenssController, DeleteExpensesController } = require("../Controllers/FoxWebController/ExpensesController");
 const { DeleteMoodController } = require("../Controllers/RuhiController/AiAwairnesController");
-const {CreatNewPinController, getPinController, VerifyPinController}= require("../Controllers/FoxWebController/PinController")
+const {CreatNewPinController, getPinController, VerifyPinController}= require("../Controllers/FoxWebController/PinController");
+const { CreateCollectionController, getCollectionController } = require("../Controllers/Shregar/CollectionController");
 const router = express.Router();
-const API = "";   // IMPORTANT FIX
+const API = "";   
 
 /* -------------------- AUTH -------------------- */
 router.post(`${API}/auth/register/api39`, CreateRegiUserController);
@@ -55,5 +56,10 @@ router.post(`${API}/ai/mood/delete/api45`, DeleteMoodController);
 router.post(`${API}/pins/create/api48`, CreatNewPinController);
 router.get(`${API}/pins/list/api49`, getPinController);
 router.post(`${API}/pins/verify/api50`, VerifyPinController);
+
+/* -------------------- Shregar API -------------------- */
+router.post(`${API}/shrigar/collections/create/api51`,CreateCollectionController)
+router.get(`${API}/shrigar/collections/list/api52`, getCollectionController);
+
 
 module.exports = router;
