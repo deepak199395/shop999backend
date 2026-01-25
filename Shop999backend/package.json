@@ -1,24 +1,16 @@
 {
   "name": "shop999",
   "version": "1.0.0",
-  "description": "this e-shopping app ",
+  "description": "this e-shopping app",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon server.js",
-    "dev": "vercel dev"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/deepak199395/shop999backend.git"
+  "engines": {
+    "node": "20.x"
   },
-  "author": "Deepak yadav",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/deepak199395/shop999backend/issues"
-  },
-  "homepage": "https://github.com/deepak199395/shop999backend#readme",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "colors": "^1.4.0",
@@ -32,9 +24,7 @@
     "mongoose": "^8.12.1",
     "morgan": "^1.10.0",
     "mysql2": "^3.13.0",
-    "nodemon": "^3.1.9",
     "sequelize": "^6.37.6",
-    "sequelize-cli": "^6.6.2",
     "sqlite3": "^5.1.7"
   }
 }
