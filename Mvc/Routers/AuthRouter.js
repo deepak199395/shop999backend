@@ -10,6 +10,7 @@ const { DeleteMoodController } = require("../Controllers/RuhiController/AiAwairn
 const {CreatNewPinController, getPinController, VerifyPinController}= require("../Controllers/FoxWebController/PinController");
 const { CreateCollectionController, getCollectionController } = require("../Controllers/Shregar/CollectionController");
 const { CreateCategoriesController, getCategoriesController } = require("../Controllers/Shregar/CategoriesController");
+const { CreateProductController, getProductController } = require("../Controllers/Shregar/CollecProdController");
 const router = express.Router();
 const API = "";   
 
@@ -63,6 +64,7 @@ router.post(`${API}/shrigar/collections/create/api51`,CreateCollectionController
 router.get(`${API}/shrigar/collections/list/api52`, getCollectionController);
 router.post(`${API}/shrigar/CreateCategories/get/api53`,CreateCategoriesController)
 router.get(`${API}/shrigar/getCategories/list/api54`,getCategoriesController)
-
+router.post(`${API}/shrigar/Collections/products/create/api55`,CreateProductController)
+router.get(`${API}/shrigar/Collections/products/list/api56`,getProductController)
 
 module.exports = router;
