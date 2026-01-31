@@ -5,58 +5,48 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-
 const connectDb = require("./Config/Db");
 const sessionRoutes = require("./Sesstions&Cookies/SessionRoutes");
 const authRouter = require("./Mvc/Routers/AuthRouter");
 
-// --------------------------------------------------
-// LOAD ENV VARIABLES
-// --------------------------------------------------
 dotenv.config();
-
-// --------------------------------------------------
-// CONNECT DATABASE (IMPORTANT: BEFORE SERVER START)
-// --------------------------------------------------
 connectDb();
-
-// --------------------------------------------------
-// APP INIT
-// --------------------------------------------------
 const app = express();
 
-// --------------------------------------------------
 // ALLOWED ORIGINS (FRONTEND + AZURE)
-// --------------------------------------------------
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:5173",
+
+  // Firebase dashboard
+  "https://shrigaar-dashboard.web.app",
+
+  // Production site
   "https://shrigaar.com",
   "https://www.shrigaar.com",
-  "https://devdeepak-backend-api.azurewebsites.net"
-];
 
-// --------------------------------------------------
+  // Azure backend (exact domain)
+  "https://devdeepak-backend-api-fbdhhyeddwbab9da.centralindia-01.azurewebsites.net"
+];
 // CORS CONFIG (SAFE + FLEXIBLE)
-// --------------------------------------------------
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow server-to-server & tools like Postman
-      if (!origin) return callback(null, true);
+      if (!origin) return callback(null, true); // Postman, server-to-server
 
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
 
-      console.log("❌ BLOCKED BY CORS:", origin.red);
-      callback(new Error("Not allowed by CORS"));
+      console.log("❌ BLOCKED BY CORS:", origin);
+      return callback(new Error("Not allowed by CORS"));
     },
+    credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
+
 
 // Handle preflight
 app.options("*", cors());
