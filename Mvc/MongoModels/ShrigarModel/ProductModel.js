@@ -2,13 +2,14 @@ const mongoose = require('mongoose')
 const productSchema = new mongoose.Schema(
     {
         collectionId: {
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Collection",
             required: true,
-            trim: true,
         },
         productName: {
             type: String,
             required: true,
+            trim: true,
         },
         image: {
             type: String
@@ -28,8 +29,9 @@ const productSchema = new mongoose.Schema(
         },
         priceAfterDiscount: {
             type: Number,
-            default: 0
-        }, inStock: {
+            default: 0,
+        },
+         inStock: {
             type: Boolean,
             default: true,
         },
