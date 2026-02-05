@@ -1,12 +1,13 @@
-const Product = require("../../MongoModels/ShrigarModel/ProductModel.js")
+const CollectionProduct = require("../../MongoModels/ShrigarModel/ProductModel.js")
+
 const CreateProductController = async(req,res)=>{
     try {
-        const {collectionName,ProductNmae,image,price,originalPrice,description,discountPercentage,inStock}=req.body;
-        const newProduct = await Product.create({
-            collectionName,
-            ProductNmae,
+        const {collectionId,productName,image,description,originalPrice,discountPercentage,inStock}=req.body;
+
+          const newProduct = await CollectionProduct.create({
+            collectionId,
+            productName,
             image,
-            price,
             originalPrice,
             description,
             discountPercentage,
