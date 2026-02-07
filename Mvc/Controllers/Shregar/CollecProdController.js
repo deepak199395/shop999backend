@@ -30,7 +30,7 @@ const CreateProductController = async(req,res)=>{
 }
 const getProductController=async(req,res)=>{
     try {
-        const product= await Product.find()
+        const product= await CollectionProduct.find()
         res.status(200).json({
             message:"Product retrieved successfully",
             success: true,
