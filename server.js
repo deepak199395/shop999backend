@@ -27,7 +27,7 @@ const allowedOrigins = [
   "https://www.shrigaar.com",
 
   // Azure backend (exact domain)
-  "https://devdeepak-backend-api-fbdhhyeddwbab9da.centralindia-01.azurewebsites.net"
+  "https://api.shrigaar.com"
 ];
 // CORS CONFIG (SAFE + FLEXIBLE)
 app.use(
