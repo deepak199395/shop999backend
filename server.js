@@ -27,7 +27,9 @@ const allowedOrigins = [
   "https://www.shrigaar.com",
 
   // Azure backend (exact domain)
-  "https://api.shrigaar.com"
+  "https://api.shrigaar.com",
+  // Azure Static Web App frontend
+  "https://purple-grass-06c357310.2.azurestaticapps.net"
 ];
 // CORS CONFIG (SAFE + FLEXIBLE)
 app.use(
