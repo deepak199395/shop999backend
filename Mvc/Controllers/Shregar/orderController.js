@@ -60,21 +60,20 @@ const getMyOrdersController = async (req, res) => {
 
 const getSingleOrderController = async (req, res) => {
   try {
-    const order = await Order.findOne({
-      _id: req.params.id,
-      userId: req.user._id,
-    });
+    const order = await Order.findById(req.params.id);
+
     if (!order) {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
-        flage: "N",
         message: "Order not found",
       });
     }
-    res.status(200).json({
+
+    res.json({
       success: true,
       order,
     });
+
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -82,6 +81,7 @@ const getSingleOrderController = async (req, res) => {
     });
   }
 };
+
 const updateOrderStatusController =async()=>{
     try {
         const{status}=req.body;
