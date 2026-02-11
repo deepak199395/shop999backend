@@ -11,6 +11,9 @@ const {CreatNewPinController, getPinController, VerifyPinController}= require(".
 const { CreateCollectionController, getCollectionController } = require("../Controllers/Shregar/CollectionController");
 const { CreateCategoriesController, getCategoriesController } = require("../Controllers/Shregar/CategoriesController");
 const { CreateProductController, getProductController } = require("../Controllers/Shregar/CollecProdController");
+//const { requireSignIn } = require("../../MiddleWere/authMiddleware");
+const { createOrderController, getMyOrdersController, getSingleOrderController, updateOrderStatusController } = require("../MongoModels/ShrigarModel/orderController");
+
 const router = express.Router();
 const API = "";   
 
@@ -66,5 +69,9 @@ router.post(`${API}/shrigar/CreateCategories/get/api53`,CreateCategoriesControll
 router.get(`${API}/shrigar/getCategories/list/api54`,getCategoriesController)
 router.post(`${API}/shrigar/Collections/products/create/api55`,CreateProductController)
 router.get(`${API}/shrigar/Collections/products/list/api56`,getProductController)
+router.post(`${API}/shrigar/order/create/api57`,createOrderController)
+router.get(`${API}/shrigar/order/list/api58`,getMyOrdersController)
+router.get(`${API}/shrigar/order/get/api59/:id`,getSingleOrderController)
+router.put(`${API}/shrigar/order/update/api60/:id`,updateOrderStatusController)
 
 module.exports = router;
