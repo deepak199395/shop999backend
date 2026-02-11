@@ -82,24 +82,45 @@ const getSingleOrderController = async (req, res) => {
   }
 };
 
-const updateOrderStatusController =async()=>{
-    try {
-        const{status}=req.body;
-        const order= await Order.findByIdAndUpdate(req.params.id,{orderStatus:status},{new:true});
-        res.status(200).json({
-            flage:"Green",
-            success:true,
-            order
-        })
-    } catch (error) {
-        res.status(500).json({
-            flage:"Red",
-            success:false,
-            message:error.message
-        })
-        
+const updateOrderStatusController = async (req, res) => {
+  try {
+    const { status } = req.body;
+
+    if (!status) {
+      return res.status(400).json({
+        success: false,
+        message: "Status is required",
+      });
     }
-}
+
+    const order = await Order.findByIdAndUpdate(
+      req.params.id,
+      { orderStatus: status },
+      { new: true }
+    );
+
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Order status updated",
+      order,
+    });
+
+  } catch (error) {
+    console.error("UPDATE ERROR:", error);
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   createOrderController,
   getMyOrdersController,
