@@ -2,19 +2,22 @@ const Order = require("../../MongoModels/ShrigarModel/OrderModel");
 
 const createOrderController = async (req, res) => {
   try {
-    const { items, address, totalAmount } = req.body;
+    const { userId, items, address, totalAmount } = req.body;
+
     if (!items?.length || !address || !totalAmount) {
       return res.status(400).json({
         success: false,
         message: "Missing order data",
       });
     }
+
     const order = await Order.create({
-      userId: req.user._id,
+      userId, 
       items,
       address,
       totalAmount,
     });
+
     res.status(201).json({
       success: true,
       message: "Order placed successfully",
@@ -28,22 +31,33 @@ const createOrderController = async (req, res) => {
     });
   }
 };
+
+
 const getMyOrdersController = async (req, res) => {
   try {
-    const orders = await Order.find({ userId: req.user._id }).sort({
-      createdAt: -1,
-    });
+    const { userId } = req.query;
+
+    let filter = {};
+
+    if (userId) {
+      filter.userId = userId;
+    }
+
+    const orders = await Order.find(filter).sort({ createdAt: -1 });
+
     res.status(200).json({
       success: true,
-      orders,
+      orders
     });
+
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message,
+      message: error.message
     });
   }
 };
+
 const getSingleOrderController = async (req, res) => {
   try {
     const order = await Order.findOne({

@@ -12,7 +12,7 @@ const { CreateCollectionController, getCollectionController } = require("../Cont
 const { CreateCategoriesController, getCategoriesController } = require("../Controllers/Shregar/CategoriesController");
 const { CreateProductController, getProductController } = require("../Controllers/Shregar/CollecProdController");
 //const { requireSignIn } = require("../../MiddleWere/authMiddleware");
-const { createOrderController, getMyOrdersController, getSingleOrderController, updateOrderStatusController } = require("../MongoModels/ShrigarModel/orderController");
+const { createOrderController, getSingleOrderController, updateOrderStatusController, getMyOrdersController } = require("../Controllers/Shregar/orderController");
 
 const router = express.Router();
 const API = "";   

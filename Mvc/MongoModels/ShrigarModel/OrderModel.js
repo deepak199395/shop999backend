@@ -5,7 +5,6 @@ const orderSchema = new mongoose.Schema(
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true
     },
 
     items: [
@@ -13,46 +12,70 @@ const orderSchema = new mongoose.Schema(
         productId: {
           type: mongoose.Schema.Types.ObjectId,
           ref: "Product",
-          required: true
+          required: true,
         },
-        productName: String,
-        image: String,
+        productName: {
+          type: String,
+          required: true,
+        },
+        image: {
+          type: String,
+        },
         qty: {
           type: Number,
-          required: true
+          required: true,
+          min: 1,
         },
         price: {
           type: Number,
-          required: true
-        }
-      }
+          required: true,
+        },
+      },
     ],
 
     address: {
-      fullName: String,
-      phone: String,
-      addressLine: String,
-      city: String,
-      state: String,
-      pincode: String
+      fullName: {
+        type: String,
+        required: true,
+      },
+      phone: {
+        type: String,
+        required: true,
+      },
+      addressLine: {
+        type: String,
+        required: true,
+      },
+      city: {
+        type: String,
+        required: true,
+      },
+      state: {
+        type: String,
+        required: true,
+      },
+      pincode: {
+        type: String,
+        required: true,
+      },
     },
 
     totalAmount: {
       type: Number,
-      required: true
+      required: true,
     },
 
     paymentStatus: {
       type: String,
       enum: ["PENDING", "PAID", "FAILED"],
-      default: "PENDING"
+      default: "PENDING",
     },
 
     orderStatus: {
       type: String,
       enum: ["PLACED", "SHIPPED", "DELIVERED", "CANCELLED"],
-      default: "PLACED"
-    }
+      default: "PLACED",
+    },
   },
   { timestamps: true }
 );
