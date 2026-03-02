@@ -48,11 +48,22 @@ const getUserController = async (req, res) => {
   try {
     const users = await JuhiAuthModel.find();
 
+    // Add isMinor & isMajor dynamically
+    const updatedUsers = users.map((user) => {
+      const userAge = Number(user.age);
+
+      return {
+        ...user._doc, 
+        isMinor: userAge < 18,
+        isMajor: userAge >= 18,
+      };
+    });
+
     return res.status(200).json({
       success: true,
       message: "Users fetched successfully",
       flag: "green",
-      data: users,
+      data: updatedUsers,
     });
 
   } catch (error) {
