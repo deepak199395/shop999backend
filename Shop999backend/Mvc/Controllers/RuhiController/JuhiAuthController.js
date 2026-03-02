@@ -13,6 +13,9 @@ const regiController = async (req, res) => {
       });
     }
 
+    const isMinor=userAge < 18;
+    const isMajor = userAge >= 18;
+
     // Create user
     const newUser = await JuhiAuthModel.create({
       FullName,
@@ -28,6 +31,8 @@ const regiController = async (req, res) => {
     return res.status(201).json({
       success: true,
       message: "User registered successfully",
+      isMinor,
+      isMajor,
       ageMessage: ageStatus,
       data: newUser,
     });
