@@ -103,4 +103,49 @@ const getSingleUserController = async (req, res) => {
   }
 };
 
-module.exports = { regiController, getUserController,getSingleUserController };
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
+const loginController = async (req, res) => {
+  try {
+    const { Email, Password } = req.body;
+
+    if (!Email || !Password) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and Password are required",
+      });
+    }
+
+    const user = await JuhiAuthModel.findOne({ Email });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    if (user.Password !== Password) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid Password",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Login successful",
+      flag: "green",
+      user,
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Login failed",
+      error: error.message,
+    });
+  }
+};
+module.exports = { regiController, getUserController,getSingleUserController,loginController};

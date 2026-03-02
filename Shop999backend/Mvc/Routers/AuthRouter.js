@@ -10,7 +10,7 @@ const { DeleteMoodController } = require("../Controllers/RuhiController/AiAwairn
 const {CreatNewPinController, getPinController, VerifyPinController}= require("../Controllers/FoxWebController/PinController");
 const { CreateCollectionController, getCollectionController } = require("../Controllers/Shregar/CollectionController");
 const { CreateCategoriesController, getCategoriesController } = require("../Controllers/Shregar/CategoriesController");
-const { regiController, getUserController, getSingleUserController } = require("../Controllers/RuhiController/JuhiAuthController");
+const { regiController, getUserController, getSingleUserController, loginController } = require("../Controllers/RuhiController/JuhiAuthController");
 const router = express.Router();
 const API = "";   
 
@@ -56,6 +56,7 @@ router.post(`${API}/ai/mood/delete/api45`, DeleteMoodController);
 router.post(`${API}/Ai/Juhi/azure-api/Auth/Users/CreateUsers/api46`,regiController)
 router.get(`${API}/Ai/Juhi/azure-api/Auth/Users/getAllUsers/api47`,getUserController)
 router.get(`${API}/Ai/Juhi/azure-api/Auth/Users/getSingleUser/api48/:id`,getSingleUserController)
+router.post(`${API}/Ai/Juhi/azure-api/Auth/Users/Login/api49`,loginController)
 
 /* -------------------- PIN API -------------------- */
 router.post(`${API}/pins/create/api48`, CreatNewPinController);
