@@ -1,9 +1,0 @@
-npm install -g vercel
-vercel login
-vercel
-
-
-vercel
-vercel --prod
-
- vercel list shop999backend

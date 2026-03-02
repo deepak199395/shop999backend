@@ -1,4 +1,4 @@
-const DeleteMoodModel = require("../../MongoModels/RuhiModel/MoodDetect.js")
+const DeleteMoodModel = require("../../MongoModels/JuhiModel/MoodDetect.js")
 const DeleteMoodController = async (req, res) => {
     try {
         const { text } = req.body;
