@@ -14,7 +14,14 @@ const apiKeyMiddleware = (req, res, next) => {
       message: "Invalid API Key",
     });
   }
-
+const today = new Date();
+const expiryDate= new Date(process.env.JUHI_API_KEY_EXPIRE)
+if (today > expiryDate) {
+    return res.status(403).json({
+      success: false,
+      message: "API Key expired",
+    });
+  }
   next(); // allow request
 };
 
