@@ -123,9 +123,11 @@ const loginController = async (req, res) => {
     if (user.Password !== Password) {
       return res.status(401).json({
         success: false,
-        message: "Invalid Password",
+        message: "Invalid credentials",
       });
     }
+
+    const userAge = Number(user.age);
 
     return res.status(200).json({
       success: true,
@@ -135,12 +137,11 @@ const loginController = async (req, res) => {
       user: {
         _id: user._id,
         FullName: user.FullName,
-        phoneNumber: user.phoneNumber,
         Email: user.Email,
-      },
-      flag: "green",
-      user,
+        age: user.age
+      }
     });
+
   } catch (error) {
     return res.status(500).json({
       success: false,
