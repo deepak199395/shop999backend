@@ -55,7 +55,7 @@ router.delete(`${API}/expenses/delete/api47/:id`, DeleteExpensesController);
 router.post(`${API}/ai/mood/delete/api45`, DeleteMoodController);
 router.post(`${API}/Ai/Juhi/azure-api/Auth/Users/CreateUsers/api46`,regiController)
 router.get(`${API}/Ai/Juhi/azure-api/Auth/Users/getAllUsers/api47`,getUserController)
-router.get(`${API}/Ai/Juhi/azure-api/Auth/Users/getSingleUser/api48`,getSingleUserController)
+router.get(`${API}/Ai/Juhi/azure-api/Auth/Users/getSingleUser/api48/:id`,getSingleUserController)
 
 /* -------------------- PIN API -------------------- */
 router.post(`${API}/pins/create/api48`, CreatNewPinController);
