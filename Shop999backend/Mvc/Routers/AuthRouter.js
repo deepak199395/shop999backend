@@ -1,4 +1,5 @@
 const express = require("express");
+const apiKeyMiddleware= require("../../MiddleWere/apiKeyMiddleware")
 const {DueLoanController, getLoandeuDetailsController, updateLoanController} = require("../Controllers/OldCoro/LoanDueController");
 const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/OldCoro/expenseController");
 const { CreateCoroUser, CorouserregiGet, CorouserregiGetById, CorouserregiUpdate, CorouserregiDelete,coroLoginController } = require("../Controllers/OldCoro/CoroUserController");
@@ -53,10 +54,10 @@ router.delete(`${API}/expenses/delete/api47/:id`, DeleteExpensesController);
 
 /* -------------------- RUHI AI -------------------- */
 router.post(`${API}/ai/mood/delete/api45`, DeleteMoodController);
-router.post(`${API}/Ai/Juhi/azure-api/Auth/Users/CreateUsers/api46`,regiController)
-router.get(`${API}/Ai/Juhi/azure-api/Auth/Users/getAllUsers/api47`,getUserController)
-router.get(`${API}/Ai/Juhi/azure-api/Auth/Users/getSingleUser/api48/:id`,getSingleUserController)
-router.post(`${API}/Ai/Juhi/azure-api/Auth/Users/Login/api49`,loginController)
+router.post(`${API}/Ai/Juhi/azure-api/Auth/Users/CreateUsers/api46`,apiKeyMiddleware,regiController)
+router.get(`${API}/Ai/Juhi/azure-api/Auth/Users/getAllUsers/api47`,apiKeyMiddleware,getUserController)
+router.get(`${API}/Ai/Juhi/azure-api/Auth/Users/getSingleUser/api48/:id`,apiKeyMiddleware,getSingleUserController)
+router.post(`${API}/Ai/Juhi/azure-api/Auth/Users/Login/api49`,apiKeyMiddleware,loginController)
 
 /* -------------------- PIN API -------------------- */
 router.post(`${API}/pins/create/api48`, CreatNewPinController);
