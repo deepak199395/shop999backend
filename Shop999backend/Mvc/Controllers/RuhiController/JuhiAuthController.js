@@ -13,7 +13,7 @@ const regiController = async (req, res) => {
       });
     }
 
-    const isMinor=userAge < 18;
+    const isMinor = userAge < 18;
     const isMajor = userAge >= 18;
 
     // Create user
@@ -53,7 +53,7 @@ const getUserController = async (req, res) => {
       const userAge = Number(user.age);
 
       return {
-        ...user._doc, 
+        ...user._doc,
         isMinor: userAge < 18,
         isMajor: userAge >= 18,
       };
@@ -65,7 +65,6 @@ const getUserController = async (req, res) => {
       flag: "green",
       data: updatedUsers,
     });
-
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -93,7 +92,6 @@ const getSingleUserController = async (req, res) => {
       message: "User fetched successfully",
       data: user,
     });
-
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -102,10 +100,6 @@ const getSingleUserController = async (req, res) => {
     });
   }
 };
-
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-
 const loginController = async (req, res) => {
   try {
     const { Email, Password } = req.body;
@@ -136,10 +130,17 @@ const loginController = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "Login successful",
+      isMinor: userAge < 18,
+      isMajor: userAge >= 18,
+      user: {
+        _id: user._id,
+        FullName: user.FullName,
+        phoneNumber: user.phoneNumber,
+        Email: user.Email,
+      },
       flag: "green",
       user,
     });
-
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -148,4 +149,9 @@ const loginController = async (req, res) => {
     });
   }
 };
-module.exports = { regiController, getUserController,getSingleUserController,loginController};
+module.exports = {
+  regiController,
+  getUserController,
+  getSingleUserController,
+  loginController,
+};
