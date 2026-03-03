@@ -1,4 +1,6 @@
 const express = require("express");
+const authMiddleware = require("../../MiddleWere/authMiddleware")
+const roleMiddleware = require("../../MiddleWere/roleMiddleware")
 const apiKeyMiddleware= require("../../MiddleWere/apiKeyMiddleware")
 const {DueLoanController, getLoandeuDetailsController, updateLoanController} = require("../Controllers/OldCoro/LoanDueController");
 const { CreateExpessController, getExpessController, updateExpenssController, DeleteExpenssController } = require("../Controllers/OldCoro/expenseController");
@@ -12,6 +14,7 @@ const {CreatNewPinController, getPinController, VerifyPinController}= require(".
 const { CreateCollectionController, getCollectionController } = require("../Controllers/Shregar/CollectionController");
 const { CreateCategoriesController, getCategoriesController } = require("../Controllers/Shregar/CategoriesController");
 const { regiController, getUserController, getSingleUserController, loginController } = require("../Controllers/RuhiController/JuhiAuthController");
+const { registerController, getAllUserController, getSingleUsersController, UpdateUserController, DeleteUserController, UserloginController } = require("../Controllers/Shregar/AuthController");
 const router = express.Router();
 const API = "";   
 
@@ -69,6 +72,12 @@ router.post(`${API}/shrigar/collections/create/api51`,CreateCollectionController
 router.get(`${API}/shrigar/collections/list/api52`, getCollectionController);
 router.post(`${API}/shrigar/CreateCategories/get/api53`,CreateCategoriesController)
 router.get(`${API}/shrigar/getCategories/list/api54`,getCategoriesController)
+router.post(`${API}/shringar/User/registerUser/api55`,registerController)
+router.get(`${API}/shringar/User/GetAllUsers/api56`,authMiddleware,roleMiddleware("user"),getAllUserController)
+router.get(`${API}/shringar/User/SingleUsers/api57/:id`,authMiddleware,getSingleUsersController)
+router.put(`${API}/shringar/User/UpdateUsers/api58/:id`,authMiddleware,UpdateUserController)
+router.delete(`${API}/shringar/User/DeleteUsers/api59/:id`,authMiddleware,roleMiddleware("admin"),DeleteUserController)
+router.post(`${API}/shringar/User/login/api60`,UserloginController)
 
 
 module.exports = router;
