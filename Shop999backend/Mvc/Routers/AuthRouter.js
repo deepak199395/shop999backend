@@ -72,11 +72,10 @@ router.get(`${API}/shrigar/collections/list/api52`, getCollectionController);
 router.post(`${API}/shrigar/CreateCategories/get/api53`,CreateCategoriesController)
 router.get(`${API}/shrigar/getCategories/list/api54`,getCategoriesController)
 router.post(`${API}/shringar/User/registerUser/api55`,registerController)
-router.get(`${API}/shringar/User/GetAllUsers/api56`,authMiddleware,getAllUserController)
+router.get(`${API}/shringar/User/GetAllUsersDetails/api56`,authMiddleware,getAllUserController)
 router.get(`${API}/shringar/User/SingleUsers/api57/:id`,authMiddleware,getSingleUsersController)
 router.put(`${API}/shringar/User/UpdateUsers/api58/:id`,authMiddleware,UpdateUserController)
 router.delete(`${API}/shringar/User/DeleteUsers/api59/:id`,authMiddleware,DeleteUserController)
 router.post(`${API}/shringar/User/login/api60`,UserloginController)
-
 
 module.exports = router;
