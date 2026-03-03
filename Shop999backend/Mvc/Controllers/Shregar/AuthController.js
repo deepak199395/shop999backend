@@ -55,8 +55,7 @@ const registerController = async (req, res) => {
       Pincode,
       Country,
       Gender,
-
-    });
+      });
 
     res.status(201).json({
       success: true,
@@ -64,6 +63,16 @@ const registerController = async (req, res) => {
       data: {
         id: newUser._id,
         Email: newUser.Email,
+        phoneNumber: newUser.phoneNumber,
+        FullName: newUser.FullName,
+        Dob: newUser.Dob,
+        age: newUser.age,
+        Address: newUser.Address,
+        City: newUser.City,
+        State: newUser.State,
+        Pincode: newUser.Pincode,
+        Country: newUser.Country,
+        Gender: newUser.Gender,
       },
     });
   } catch (error) {
