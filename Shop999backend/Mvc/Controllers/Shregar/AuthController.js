@@ -55,7 +55,6 @@ const registerController = async (req, res) => {
       Pincode,
       Country,
       Gender,
-      role: role || "user",
 
     });
 
