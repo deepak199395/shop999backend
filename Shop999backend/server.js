@@ -17,7 +17,8 @@ const allowedOrigins = [
   "http://localhost:3000",
   "https://shrigaar.com",
   "https://www.shrigaar.com",
-  "https://coro-app.netlify.app"
+  "https://coro-app.netlify.app",
+  "https://shringaarprod.netlify.app/"
 ];
 
 app.use(
