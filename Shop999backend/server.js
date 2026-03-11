@@ -24,7 +24,8 @@ const allowedOrigins = [
   "https://coro-app.netlify.app",
   "https://shringaarprod.netlify.app",
   "https://shringaars.com",
-  "https://shringaarauth.netlify.app"
+  "https://shringaarauth.netlify.app",
+  "https://shrigaar-dashboard.web.app"
 ];
 
 app.use(
