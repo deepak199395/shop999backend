@@ -23,7 +23,8 @@ const allowedOrigins = [
   "https://www.shrigaar.com",
   "https://coro-app.netlify.app",
   "https://shringaarprod.netlify.app",
-  "https://shringaars.com"
+  "https://shringaars.com",
+  "https://shringaarauth.netlify.app"
 ];
 
 app.use(
