@@ -14,6 +14,8 @@ const { CreateCollectionController, getCollectionController } = require("../Cont
 const { CreateCategoriesController, getCategoriesController } = require("../Controllers/Shregar/CategoriesController");
 const { regiController, getUserController, getSingleUserController, loginController } = require("../Controllers/RuhiController/JuhiAuthController");
 const { registerController, getAllUserController, getSingleUsersController, UpdateUserController, DeleteUserController, UserloginController } = require("../Controllers/Shregar/AuthController");
+const { CreateProductController, getProductController } = require("../Controllers/Shregar/CollecProdController");
+const { createOrderController, getMyOrdersController, getSingleOrderController, updateOrderStatusController } = require("../Controllers/Shregar/orderController");
 const router = express.Router();
 const API = "";   
 
@@ -71,11 +73,18 @@ router.post(`${API}/shrigar/collections/create/api51`,CreateCollectionController
 router.get(`${API}/shrigar/collections/list/api52`, getCollectionController);
 router.post(`${API}/shrigar/CreateCategories/get/api53`,CreateCategoriesController)
 router.get(`${API}/shrigar/getCategories/list/api54`,getCategoriesController)
-router.post(`${API}/shringar/User/registerUser/api55`,registerController)
-router.get(`${API}/shringar/User/GetAllUsersDetails/api56`,authMiddleware,getAllUserController)
-router.get(`${API}/shringar/User/SingleUsers/api57/:id`,authMiddleware,getSingleUsersController)
-router.put(`${API}/shringar/User/UpdateUsers/api58/:id`,authMiddleware,UpdateUserController)
-router.delete(`${API}/shringar/User/DeleteUsers/api59/:id`,authMiddleware,DeleteUserController)
-router.post(`${API}/shringar/User/login/api60`,UserloginController)
+router.post(`${API}/shrigar/Collections/products/create/api55`,CreateProductController)
+router.get(`${API}/shrigar/Collections/products/list/api56`,getProductController)
+router.post(`${API}/shrigar/order/create/api57`,createOrderController)
+router.get(`${API}/shrigar/order/list/api58`,getMyOrdersController)
+router.get(`${API}/shrigar/order/get/api59/:id`,getSingleOrderController)
+router.put(`${API}/shrigar/order/update/api60/:id`,updateOrderStatusController)
+/* -------------------- Shregar API AUTH -------------------- */
+router.post(`${API}/shringar/User/registerUser/api61`,registerController)
+router.get(`${API}/shringar/User/GetAllUsersDetails/api62`,authMiddleware,getAllUserController)
+router.get(`${API}/shringar/User/SingleUsers/api63/:id`,authMiddleware,getSingleUsersController)
+router.put(`${API}/shringar/User/UpdateUsers/api64/:id`,authMiddleware,UpdateUserController)
+router.delete(`${API}/shringar/User/DeleteUsers/api65/:id`,authMiddleware,DeleteUserController)
+router.post(`${API}/shringar/User/login/api66`,UserloginController)
 
 module.exports = router;
