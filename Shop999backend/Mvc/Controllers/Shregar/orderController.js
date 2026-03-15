@@ -44,9 +44,13 @@ const getMyOrdersController = async (req, res) => {
 
     const { userId } = req.query;
 
-    const orders = await Order.find({ userId })
-      .populate("items.productId")
-      .sort({ createdAt: -1 });
+    let filter = {};
+
+    if (userId) {
+      filter.userId = new mongoose.Types.ObjectId(userId);
+    }
+
+    const orders = await Order.find(filter).sort({ createdAt: -1 });
 
     res.status(200).json({
       success: true,
