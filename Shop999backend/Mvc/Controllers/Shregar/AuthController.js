@@ -236,6 +236,15 @@ const UserloginController = async (req, res) => {
         id: user._id,
         FullName: user.FullName,
         Email: user.Email,
+        FullName: user.FullName,
+        phoneNumber: user.phoneNumber,
+        Address: user.Address,
+        City: user.City,
+        State: user.State,
+        Pincode: user.Pincode,
+        Country: user.Country,
+        Gender: user.Gender,
+        role: user.role,
       },
     });
   } catch (error) {
